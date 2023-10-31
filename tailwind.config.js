@@ -1,10 +1,14 @@
 /** @type {import('tailwindcss').Config} */
+
+// eslint-disable-next-line no-undef
+const plugin = require("tailwindcss/plugin");
+
 export default {
   content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
     colors: {
       "fantasy-blue": {
-        main: "#005289",
+        DEFAULT: "#005289",
         active: "#003252",
         hover: "#004B7A",
       },
@@ -14,7 +18,7 @@ export default {
       },
       "earth-brown": {
         light: "#C9C0BA",
-        mid: "#CB904D",
+        DEFAULT: "#CB904D",
         dark: "#8E5F29",
       },
       error: {
@@ -26,7 +30,17 @@ export default {
       "rose-white": "#F8F3F1",
       "dark-gray": "#171412",
     },
+    fontFamily: {
+      sans: ["Ledger", "sans-serif"],
+      serif: ["Josefin Slab", "serif"],
+    },
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addBase }) {
+      addBase({
+        html: { fontSize: "18px" },
+      });
+    }),
+  ],
 };

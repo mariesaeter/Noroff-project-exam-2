@@ -1,9 +1,7 @@
 export default function App() {
   return (
     <>
-      <h1 className=" text-3xl font-bold underline bg-rose-white">
-        Hello world!
-      </h1>
+      <h1 className=" bg-rose-white text-fantasy-blue">Hello world!</h1>
     </>
   );
 }
