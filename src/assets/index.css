@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-5xl font-normal font-serif font-normal;
+  }
+  h2 {
+    @apply text-4xl font-serif font-normal;
+  }
+  h3 {
+    @apply text-3xl font-serif font-semibold;
+  }
+  h4 {
+    @apply text-2xl font-serif font-bold;
+  }
+  h5 {
+    @apply text-xl font-serif font-bold;
+  }
+}
