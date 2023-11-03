@@ -6,9 +6,13 @@ import { Nav } from "./Nav";
 export function Header() {
   // const { navStatus } = useContext(NavContext)
   return (
-    <header>
+    <header className="flex justify-between">
       <Link to="/">
-        <img src="/src/assets/holidaze-logo.png" alt="Holidaze logo" />
+        <img
+          src="/src/assets/holidaze-logo.png"
+          alt="Holidaze logo"
+          className="w-20"
+        />
       </Link>
       <Nav />
     </header>
