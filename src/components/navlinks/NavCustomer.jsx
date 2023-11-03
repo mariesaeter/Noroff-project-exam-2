@@ -1,15 +1,15 @@
-import { Link } from "react-router-dom";
 import { MainNavLinks } from "./MainNavLinks";
+import { StyledLink } from "../styled-components/Link";
 
 export function NavCustomer() {
   return (
     <>
       <MainNavLinks />
       <li>
-        <Link to="/profile">Profile</Link>
+        <StyledLink location="profile">Profile</StyledLink>
       </li>
       <li>
-        <Link to="/my-bookings">My bookings</Link>
+        <StyledLink location="my-bookings">My bookings</StyledLink>
       </li>
     </>
   );

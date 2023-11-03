@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
 import { MainNavLinks } from "./MainNavLinks";
+import { StyledLink } from "../styled-components/Link";
 
 export function NavNotLoggedIn() {
   return (
     <>
       <MainNavLinks />
       <li>
-        <Link to="/login">Login</Link>
+        <StyledLink location="login">Login</StyledLink>
       </li>
     </>
   );

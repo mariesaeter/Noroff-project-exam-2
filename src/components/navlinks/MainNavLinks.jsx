@@ -1,16 +1,16 @@
-import { Link } from "react-router-dom";
+import { StyledLink } from "../styled-components/Link";
 
 export function MainNavLinks() {
   return (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <StyledLink location="">Home</StyledLink>
       </li>
       <li>
-        <Link to="/browse-venues">Browse venues</Link>
+        <StyledLink location="browse-venues">Browse venues</StyledLink>
       </li>
       <li>
-        <Link to="/history">History</Link>
+        <StyledLink location="history">History</StyledLink>
       </li>
     </>
   );
