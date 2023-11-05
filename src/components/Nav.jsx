@@ -1,5 +1,5 @@
 import { MenuProvider } from "../context/MenuContext";
-import { Navigation, OpenButton } from "../hooks/HamburgerMenu";
+import { HamburgerMenu } from "../hooks/HamburgerMenu";
 import { DesktopMenu } from "./DesktopMenu";
 
 export function Nav() {
@@ -10,10 +10,10 @@ export function Nav() {
           <i className="fa-regular fa-user"></i>
         </Link> */}
         <MenuProvider>
-          <OpenButton />
-          <Navigation />
+          <HamburgerMenu />
+
+          <DesktopMenu />
         </MenuProvider>
-        <DesktopMenu />
       </nav>
     </>
   );
