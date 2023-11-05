@@ -16,7 +16,7 @@ export function MobileNavLinks() {
       ) : (
         <button onClick={handleLogin}>Log in</button>
       )}
-      <ul>
+      <ul className="h-full  fixed top-0 left-0 bg-fantasy-blue-active z-40">
         {!user && <NavNotLoggedIn />}
         {user && user.manager === false && <NavCustomer />}
         {user && user.manager === true && <NavManager />}

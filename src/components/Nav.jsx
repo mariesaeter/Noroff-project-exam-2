@@ -1,4 +1,5 @@
-import { HamburgerMenu } from "../hooks/HamburgerMenu";
+import { MenuProvider } from "../context/MenuContext";
+import { Navigation, OpenButton } from "../hooks/HamburgerMenu";
 import { DesktopMenu } from "./DesktopMenu";
 
 export function Nav() {
@@ -8,7 +9,10 @@ export function Nav() {
         {/* <Link to="/login">
           <i className="fa-regular fa-user"></i>
         </Link> */}
-        <HamburgerMenu />
+        <MenuProvider>
+          <OpenButton />
+          <Navigation />
+        </MenuProvider>
         <DesktopMenu />
       </nav>
     </>
