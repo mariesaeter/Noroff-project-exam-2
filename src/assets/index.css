@@ -6,6 +6,10 @@ body {
   min-height: 100vh;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 @layer base {
   h1 {
     @apply text-5xl font-normal font-serif font-normal;
