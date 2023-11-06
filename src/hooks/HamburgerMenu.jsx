@@ -37,7 +37,7 @@ export function HamburgerMenu() {
   );
 
   return (
-    <section className="cursor-pointer lg:hidden">
+    <section className="lg:hidden">
       {openMenu ? closeButton : openButton}
       {openMenu && <MobileNavLinks />}
     </section>

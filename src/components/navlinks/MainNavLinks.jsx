@@ -1,4 +1,4 @@
-import { StyledLink } from "../styled-components/Link";
+import { StyledLink } from "../styled-components/NavLink";
 
 export function MainNavLinks() {
   return (

@@ -17,7 +17,7 @@ export function MobileNavLinks() {
         <button onClick={handleLogin}>Log in</button>
       )}
       <div className=" w-full h-full top-0 left-0 fixed bg-fantasy-blue-active z-40">
-        <ul className=" flex flex-col items-center h-full justify-center">
+        <ul className=" flex flex-col gap-8 items-center h-full justify-center">
           {!user && <NavNotLoggedIn />}
           {user && user.manager === false && <NavCustomer />}
           {user && user.manager === true && <NavManager />}

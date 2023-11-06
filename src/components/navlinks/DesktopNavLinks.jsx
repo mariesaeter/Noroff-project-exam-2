@@ -16,7 +16,7 @@ export function DesktopNavLinks() {
       ) : (
         <button onClick={handleLogin}>Log in</button>
       )}
-      <ul className="flex">
+      <ul className="flex gap-6">
         {!user && <NavNotLoggedIn />}
         {user && user.manager === false && <NavCustomer />}
         {user && user.manager === true && <NavManager />}
