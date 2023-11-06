@@ -16,11 +16,13 @@ export function MobileNavLinks() {
       ) : (
         <button onClick={handleLogin}>Log in</button>
       )}
-      <ul className="h-full  fixed top-0 left-0 bg-fantasy-blue-active z-40">
-        {!user && <NavNotLoggedIn />}
-        {user && user.manager === false && <NavCustomer />}
-        {user && user.manager === true && <NavManager />}
-      </ul>
+      <div className=" w-full h-full top-0 left-0 fixed bg-fantasy-blue-active z-40">
+        <ul className=" flex flex-col items-center h-full justify-center">
+          {!user && <NavNotLoggedIn />}
+          {user && user.manager === false && <NavCustomer />}
+          {user && user.manager === true && <NavManager />}
+        </ul>
+      </div>
     </>
   );
 }
