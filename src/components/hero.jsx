@@ -1,4 +1,5 @@
 import { iconClass, inputClass } from "../constants";
+import { Calendar } from "./DatePicker";
 
 export const Hero = () => {
   return (
@@ -18,10 +19,11 @@ export const Hero = () => {
             placeholder="Where do you want to go?"
           />
         </div>
-        <div className="relative text-earth-brown">
+        <Calendar />
+        {/* <div className="relative text-earth-brown">
           <i className={iconClass("fa-solid fa-calendar-days")}></i>
           <input type="date" className={inputClass} placeholder="start date" />
-        </div>
+        </div> */}
         <div className="relative text-earth-brown">
           <i className={iconClass("fa-solid fa-user")}></i>
           <input
