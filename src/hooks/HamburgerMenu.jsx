@@ -20,9 +20,9 @@ export function HamburgerMenu() {
   );
 
   const closeButton = (
-    <button onClick={() => toggleMenu()}>
+    <button className="fixed z-50" onClick={() => toggleMenu()}>
       <svg
-        className="h-8 w-8 z-50"
+        className="h-8 w-8"
         viewBox="0 0 24 24"
         fill="#F8F3F1"
         stroke="#F8F3F1"
@@ -37,7 +37,7 @@ export function HamburgerMenu() {
   );
 
   return (
-    <section className="cursor-pointer  lg:hidden">
+    <section className="lg:hidden">
       {openMenu ? closeButton : openButton}
       {openMenu && <MobileNavLinks />}
     </section>

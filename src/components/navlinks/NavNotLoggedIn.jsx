@@ -1,5 +1,5 @@
 import { MainNavLinks } from "./MainNavLinks";
-import { StyledLink } from "../styled-components/Link";
+import { StyledLink } from "../styled-components/NavLink";
 
 export function NavNotLoggedIn() {
   return (
