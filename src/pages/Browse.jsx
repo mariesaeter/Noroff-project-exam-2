@@ -1,3 +1,7 @@
 export const Browse = () => {
-  return <h1>Browse page</h1>;
+  return (
+    <div className="mx-5">
+      <h1>Browse page</h1>
+    </div>
+  );
 };

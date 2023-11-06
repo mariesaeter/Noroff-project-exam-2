@@ -1,3 +1,7 @@
 export const MyBookings = () => {
-  return <h1>My bookings page</h1>;
+  return (
+    <div className="mx-5">
+      <h1>My bookings page</h1>
+    </div>
+  );
 };

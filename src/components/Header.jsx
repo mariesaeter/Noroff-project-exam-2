@@ -6,7 +6,7 @@ import { Nav } from "./Nav";
 export function Header() {
   // const { navStatus } = useContext(NavContext)
   return (
-    <header className="flex justify-between lg:grid lg:grid-cols-[100px_minmax(0px,_1fr)] lg:place-items-center bg-sky-blue-dark px-5 py-3 md:px-8 ">
+    <header className="flex justify-between lg:grid lg:grid-cols-[100px_minmax(0px,_1fr)] lg:place-items-center bg-sky-blue-dark px-5 py-3 md:px-8 mb-5 lg:mb-8">
       <Link to="/">
         <img
           src="/src/assets/holidaze-logo.png"
