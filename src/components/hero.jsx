@@ -1,5 +1,6 @@
 import { iconClass, inputClass } from "../constants";
 import { Calendar } from "./DatePicker";
+import { BtnPrimary } from "./PrimaryButton";
 
 export const Hero = () => {
   return (
@@ -20,10 +21,6 @@ export const Hero = () => {
           />
         </div>
         <Calendar />
-        {/* <div className="relative text-earth-brown">
-          <i className={iconClass("fa-solid fa-calendar-days")}></i>
-          <input type="date" className={inputClass} placeholder="start date" />
-        </div> */}
         <div className="relative text-earth-brown h-11 mb-2.5">
           <i className={iconClass("fa-solid fa-user")}></i>
           <input
@@ -32,6 +29,7 @@ export const Hero = () => {
             placeholder="How many people?"
           />
         </div>
+        <BtnPrimary btnText="Search" type="submit" />
       </form>
     </div>
   );
