@@ -1,3 +1,7 @@
 export const Venue = () => {
-  return <h1>Individual venue page</h1>;
+  return (
+    <div className="mx-5">
+      <h1>Individual venue page</h1>
+    </div>
+  );
 };

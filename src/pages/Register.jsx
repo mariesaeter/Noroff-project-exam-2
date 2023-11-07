@@ -1,3 +1,7 @@
 export const Register = () => {
-  return <h1>Register page</h1>;
+  return (
+    <div className="mx-5">
+      <h1>Register page</h1>
+    </div>
+  );
 };

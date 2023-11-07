@@ -1,3 +1,7 @@
 export const History = () => {
-  return <h1>History page</h1>;
+  return (
+    <div className="mx-5">
+      <h1>History page</h1>
+    </div>
+  );
 };

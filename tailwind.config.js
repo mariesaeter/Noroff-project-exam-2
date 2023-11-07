@@ -43,7 +43,7 @@ export default {
   plugins: [
     plugin(function ({ addBase }) {
       addBase({
-        html: { fontSize: "18px" },
+        html: { fontSize: "18px", letterSpacing: "0.025em" },
       });
     }),
   ],
