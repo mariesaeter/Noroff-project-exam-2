@@ -2,7 +2,7 @@ export const WideButton = ({ classes, btnText, type, onClick }) => {
   return (
     <button
       type={`${type}`}
-      className={`w-full h-10 tracking-wider rounded-lg transition ease-in-out duration-500 ${classes} `}
+      className={`w-full h-10 tracking-wider rounded-lg transition ease-in-out duration-500  mb-2.5 ${classes} `}
       onClick={onClick}
     >
       {btnText}
