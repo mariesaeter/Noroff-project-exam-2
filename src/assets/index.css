@@ -26,6 +26,9 @@ body {
   h5 {
     @apply text-xl font-serif font-bold;
   }
+  p {
+    @apply mb-2;
+  }
 }
 
 nav .active {
