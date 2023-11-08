@@ -20,7 +20,7 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="browse-venues" element={<Browse />} />
-          <Route path="venue" element={<Venue />} />
+          <Route path=":id" element={<Venue />} />
           <Route path="history" element={<History />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
