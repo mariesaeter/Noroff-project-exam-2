@@ -29,6 +29,9 @@ body {
   p {
     @apply mb-2;
   }
+  body {
+    @apply bg-body-white;
+  }
 }
 
 nav .active {

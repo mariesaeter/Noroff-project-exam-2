@@ -4,5 +4,5 @@ export const inputClass =
 // export const inputContainer = "flex";
 
 export const iconClass = (icon) => {
-  return `${icon} absolute  ml-2 top-1/2 translate-x-0 translate-y-[-50%]`;
+  return `${icon} fa-solid absolute  ml-2 top-1/2 translate-x-0 translate-y-[-50%]`;
 };

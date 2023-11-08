@@ -14,7 +14,7 @@ export const Hero = () => {
         <h2 className="text-fantasy-blue text-3xl">Fictional adventures</h2>
         <form className=" w-full  lg:px-14 lg:grid lg:grid-cols-4 lg:gap-2.5  ">
           <div className="w-[80%] lg:w-full block mx-auto relative text-earth-brown h-11 mb-2.5">
-            <i className={iconClass("fa-solid fa-location-dot")}></i>
+            <i className={iconClass("fa-location-dot")}></i>
             <input
               type="text"
               className={inputClass}
@@ -25,7 +25,7 @@ export const Hero = () => {
             <Calendar />
           </div>
           <div className=" w-[80%] lg:w-full block mx-auto relative text-earth-brown h-11 mb-2.5">
-            <i className={iconClass("fa-solid fa-user")}></i>
+            <i className={iconClass("fa-user")}></i>
             <input
               type="number"
               className={inputClass}
