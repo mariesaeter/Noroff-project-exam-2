@@ -1,2 +1,2 @@
-export { inputClass } from "./formClasses";
-export { iconClass } from "./formClasses";
+export { inputClass } from "./classes";
+export { iconClass } from "./classes";

@@ -1,6 +1,6 @@
 import { iconClass, inputClass } from "../constants";
 import { Calendar } from "./DatePicker";
-import { BtnPrimary } from "./PrimaryButton";
+import { BtnPrimary } from "./styled-components/Buttons";
 
 export const Hero = () => {
   return (
