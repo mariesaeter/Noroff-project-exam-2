@@ -5,7 +5,7 @@ import { iconClass, inputClass } from "../constants";
 
 // https://reactdatepicker.com/#example-date-range-for-one-datepicker
 const CalendarIcon = () => {
-  return <i className={iconClass("fa-solid fa-calendar-days")}></i>;
+  return <i className={iconClass("fa-calendar-days")}></i>;
 };
 
 export const Calendar = () => {
