@@ -1,4 +1,5 @@
 import { URL_LOGIN } from "../constants/url";
+import { saveLocal } from "../utils/localStorage";
 
 export async function loginUser(user) {
   const body = JSON.stringify(user);
@@ -13,8 +14,10 @@ export async function loginUser(user) {
     });
 
     if (response.ok) {
-      const json = await response.json();
-      return json;
+      const { accessToken, ...profile } = await response.json();
+
+      saveLocal("accessToken", accessToken);
+      saveLocal("profile", profile);
     }
   } catch (error) {
     console.log(error);

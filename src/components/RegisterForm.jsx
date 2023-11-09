@@ -4,21 +4,23 @@ import { BtnPrimary } from "./styled-components/Buttons";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect } from "react";
-import { loginUser } from "../authentication/loginUser";
+import { registerUser } from "../authentication/registerUser";
 
-const LoginSchema = yup.object({
+const RegisterSchema = yup.object({
+  name: yup.string().required(),
   email: yup.string().email().required(),
   password: yup.string().min(8).required(),
+  avatar: yup.string(),
 });
 
-export const LoginForm = () => {
+export const RegisterForm = () => {
   const {
     reset,
     register,
     handleSubmit,
     formState: { errors, isSubmitSuccessful },
   } = useForm({
-    resolver: yupResolver(LoginSchema),
+    resolver: yupResolver(RegisterSchema),
   });
 
   useEffect(() => {
@@ -26,15 +28,28 @@ export const LoginForm = () => {
   }, [isSubmitSuccessful, reset]);
 
   const onSubmit = (data) => {
-    loginUser(data);
+    console.log(data);
+    registerUser(data);
   };
 
   return (
     <form
-      id="loginForm"
+      id="registerForm"
       onSubmit={handleSubmit(onSubmit)}
       className="w-[80%] lg:w-[50%] mx-auto"
     >
+      <label htmlFor="name">Username</label>
+      <div className=" block  relative text-earth-brown  mb-2.5">
+        <i className={iconClass("fa-user")}></i>
+
+        <input
+          type="text"
+          name="name"
+          {...register("name")}
+          className={inputClass}
+        />
+        <label>{errors.name?.message}</label>
+      </div>
       <label htmlFor="email">Email</label>
       <div className=" block  relative text-earth-brown  mb-2.5">
         <i className={iconClass("fa-at")}></i>
@@ -59,8 +74,31 @@ export const LoginForm = () => {
         />
         <label>{errors.password?.message}</label>
       </div>
+      <label htmlFor="avatar">Avatar</label>
+      <div className=" block  relative text-earth-brown  mb-2.5">
+        <i className={iconClass("fa-img")}></i>
+
+        <input
+          type="text"
+          name="avatar"
+          {...register("avatar")}
+          className={inputClass}
+        />
+        <label>{errors.avatar?.message}</label>
+      </div>
+      <label htmlFor="venueManager">
+        I am a manager and would like to add venues for rent
+      </label>
+      <div className="  mb-2.5">
+        <input
+          type="checkbox"
+          name="venueManager"
+          {...register("venueManager")}
+        />
+        <label>{errors.venueManager?.message}</label>
+      </div>
       <div className=" ">
-        <BtnPrimary btnText="Login" type="submit" />
+        <BtnPrimary btnText="Register" type="submit" />
       </div>
     </form>
   );
