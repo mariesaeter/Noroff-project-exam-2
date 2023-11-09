@@ -5,6 +5,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect } from "react";
 import { registerUser } from "../authentication/registerUser";
+import { checkboxClass } from "../constants/classes";
 
 const RegisterSchema = yup.object({
   name: yup.string().required(),
@@ -86,16 +87,18 @@ export const RegisterForm = () => {
         />
         <label>{errors.avatar?.message}</label>
       </div>
-      <label htmlFor="venueManager">
-        I am a manager and would like to add venues for rent
-      </label>
-      <div className="  mb-2.5">
+
+      <div className="flex gap-2 mb-2.5">
         <input
+          id="venueManager"
           type="checkbox"
+          className={checkboxClass}
           name="venueManager"
           {...register("venueManager")}
         />
-        <label>{errors.venueManager?.message}</label>
+        <label htmlFor="venueManager">
+          I am a manager and would like to add venues for rent
+        </label>
       </div>
       <div className=" ">
         <BtnPrimary btnText="Register" type="submit" />
