@@ -10,11 +10,12 @@ export const Register = () => {
         <h1 className="text-center text-fantasy-blue"> Register page</h1>
       </div>
 
-      <div className="mx-5 mt-5 lg:mt-8">
+      <div className="mx-5 mt-5 lg:-8">
         <RegisterForm />
-        <div className="w-[80%] lg:w-[50%] mx-auto text-center">
-          <Link to="/register">
-            <BtnSecondary btnText="Register user" />
+        <div className="w-[80%] lg:w-[50%] mx-auto text-center mt-5">
+          <p>If you already have a user</p>
+          <Link to="/login">
+            <BtnSecondary btnText="Login" />
           </Link>
           <BrowseVenues />
         </div>

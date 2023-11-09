@@ -45,7 +45,7 @@ export const LoginForm = () => {
           {...register("email")}
           className={inputClass}
         />
-        <label>{errors.email?.message}</label>
+        <p className="text-error-dark text-sm mt-1">{errors.email?.message}</p>
       </div>
       <label htmlFor="password">Password</label>
       <div className="block  relative text-earth-brown  mb-2.5">
@@ -57,7 +57,9 @@ export const LoginForm = () => {
           {...register("password")}
           className={inputClass}
         />
-        <label>{errors.password?.message}</label>
+        <p className="text-error-dark text-sm mt-1">
+          {errors.password?.message}
+        </p>
       </div>
       <div className=" ">
         <BtnPrimary btnText="Login" type="submit" />

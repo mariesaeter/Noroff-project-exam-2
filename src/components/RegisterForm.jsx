@@ -40,7 +40,7 @@ export const RegisterForm = () => {
       className="w-[80%] lg:w-[50%] mx-auto"
     >
       <label htmlFor="name">Username</label>
-      <div className=" block  relative text-earth-brown  mb-2.5">
+      <div className=" block group relative text-earth-brown mb-2.5">
         <i className={iconClass("fa-user")}></i>
 
         <input
@@ -48,8 +48,9 @@ export const RegisterForm = () => {
           name="name"
           {...register("name")}
           className={inputClass}
+          placeholder="Your name"
         />
-        <label>{errors.name?.message}</label>
+        <p className="text-error-dark text-sm mt-1">{errors.name?.message}</p>
       </div>
       <label htmlFor="email">Email</label>
       <div className=" block  relative text-earth-brown  mb-2.5">
@@ -61,7 +62,7 @@ export const RegisterForm = () => {
           {...register("email")}
           className={inputClass}
         />
-        <label>{errors.email?.message}</label>
+        <p className="text-error-dark text-sm mt-1">{errors.email?.message}</p>
       </div>
       <label htmlFor="password">Password</label>
       <div className="block  relative text-earth-brown  mb-2.5">
@@ -73,7 +74,9 @@ export const RegisterForm = () => {
           {...register("password")}
           className={inputClass}
         />
-        <label>{errors.password?.message}</label>
+        <p className="text-error-dark text-sm mt-1">
+          {errors.password?.message}
+        </p>
       </div>
       <label htmlFor="avatar">Avatar</label>
       <div className=" block  relative text-earth-brown  mb-2.5">
@@ -85,7 +88,7 @@ export const RegisterForm = () => {
           {...register("avatar")}
           className={inputClass}
         />
-        <label>{errors.avatar?.message}</label>
+        <p className="text-error-dark text-sm mt-1">{errors.avatar?.message}</p>
       </div>
 
       <div className="flex gap-2 mb-2.5">
