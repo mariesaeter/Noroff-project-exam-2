@@ -32,6 +32,9 @@ body {
   body {
     @apply bg-body-white;
   }
+  label {
+    @apply text-fantasy-blue;
+  }
 }
 
 nav .active {
