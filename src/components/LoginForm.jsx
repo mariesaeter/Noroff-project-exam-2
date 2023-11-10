@@ -5,6 +5,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect } from "react";
 import { loginUser } from "../authentication/loginUser";
+import { useNavigate } from "react-router-dom";
 
 const LoginSchema = yup.object({
   email: yup.string().email().required(),
@@ -25,14 +26,27 @@ export const LoginForm = () => {
     reset();
   }, [isSubmitSuccessful, reset]);
 
-  const onSubmit = (data) => {
-    loginUser(data);
+  const navigate = useNavigate();
+
+  const useOnSubmit = async (data) => {
+    try {
+      const login = await loginUser(data);
+
+      login;
+      if (login === true) {
+        navigate(-1);
+      }
+      console.log(loginUser(data));
+    } catch (error) {
+      console.log(error);
+    }
+    // Try to get it to only navigate if the login is successful.
   };
 
   return (
     <form
       id="loginForm"
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(useOnSubmit)}
       className="w-[80%] lg:w-[50%] mx-auto"
     >
       <label htmlFor="email">Email</label>

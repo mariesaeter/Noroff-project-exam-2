@@ -8,12 +8,16 @@ const AuthProvider = ({ children }) => {
   const [isManager, setIsManager] = useState(false);
 
   useEffect(() => {
-    const accessToken = localStorage.getItem("accessToken");
-    const profile = localStorage.getItem("profile");
-    const manager = profile.venueManager;
+    if (localStorage.getItem("accessToken") === null) {
+      setIsAuthenticated(false);
+    } else {
+      const accessToken = localStorage.getItem("accessToken");
+      const profile = localStorage.getItem("profile");
+      const manager = profile.venueManager;
 
-    setIsAuthenticated(!!accessToken);
-    setIsManager(!!manager);
+      setIsAuthenticated(!!accessToken);
+      setIsManager(!!manager);
+    }
   }, []);
 
   return (
