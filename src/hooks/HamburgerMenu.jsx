@@ -20,7 +20,10 @@ export function HamburgerMenu() {
   );
 
   const closeButton = (
-    <button className="fixed z-50" onClick={() => toggleMenu()}>
+    <button
+      className="fixed z-50 right-5 md:right-8"
+      onClick={() => toggleMenu()}
+    >
       <svg
         className="h-8 w-8"
         viewBox="0 0 24 24"
