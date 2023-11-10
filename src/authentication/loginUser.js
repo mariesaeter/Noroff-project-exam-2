@@ -18,9 +18,13 @@ export async function loginUser(user) {
 
       saveLocal("accessToken", accessToken);
       saveLocal("profile", profile);
+
+      return true;
     }
   } catch (error) {
     console.log(error);
+
+    return false;
   }
 }
 
