@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import { RegisterForm } from "../components/RegisterForm";
 import { BtnSecondary } from "../components/styled-components/Buttons";
 import { BrowseVenues } from "../components/BrowseVenues";
+import { NavBgSolid } from "../components/styled-components/Navbg";
 
 export const Register = () => {
   return (
     <>
+      <NavBgSolid />
       <div className="bg-[url('../assets/nav-bg.svg')] bg-cover py-4 h-20">
         <h1 className="text-center text-fantasy-blue"> Register page</h1>
       </div>
