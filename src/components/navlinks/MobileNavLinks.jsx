@@ -9,7 +9,7 @@ export function MobileNavLinks() {
 
   if (isAuthenticated && isManager) {
     return (
-      <div className=" w-full h-full top-0 left-0 fixed bg-fantasy-blue-active z-40">
+      <div className=" w-full h-full top-0 left-0 fixed bg-fantasy-blue z-40">
         <ul className="flex flex-col gap-8 items-center h-full justify-center">
           <NavManager />
         </ul>
@@ -19,7 +19,7 @@ export function MobileNavLinks() {
 
   if (isAuthenticated && !isManager) {
     return (
-      <div className=" w-full h-full top-0 left-0 fixed bg-fantasy-blue-active z-40">
+      <div className=" w-full h-full top-0 left-0 fixed bg-fantasy-blue z-40">
         <ul className="flex flex-col gap-8 items-center h-full justify-center">
           <NavCustomer />
         </ul>
@@ -29,7 +29,7 @@ export function MobileNavLinks() {
 
   if (!isAuthenticated) {
     return (
-      <div className=" w-full h-full top-0 left-0 fixed bg-fantasy-blue-active z-40">
+      <div className=" w-full h-full top-0 left-0 fixed bg-fantasy-blue z-40">
         <ul className="flex flex-col gap-8 items-center h-full justify-center">
           <NavNotLoggedIn />
         </ul>

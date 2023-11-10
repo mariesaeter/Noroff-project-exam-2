@@ -13,9 +13,9 @@ export const Login = () => {
         <h1 className="text-center text-fantasy-blue"> Login page</h1>
       </div>
 
-      <div className="mx-5 mt-5 lg:mt-8 text-center">
+      <div className="mx-5 mt-5 lg:mt-8">
         <LoginForm />
-        <div className="w-[80%] lg:w-[50%] mx-auto mt-5">
+        <div className="w-[80%] lg:w-[50%] mx-auto mt-5  text-center">
           <p>If you dont have a user</p>
           <Link to="/register">
             <BtnSecondary btnText="Register user" />
