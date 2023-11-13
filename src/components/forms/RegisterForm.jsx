@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
-import { iconClass, inputClass } from "../constants";
-import { BtnPrimary } from "./styled-components/Buttons";
+import { iconClass, inputClass } from "../../constants";
+import { BtnPrimary } from "../styled-components/Buttons";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect } from "react";
-import { registerUser } from "../authentication/registerUser";
-import { checkboxClass } from "../constants/classes";
+import { registerUser } from "../../authentication/registerUser";
+import { checkboxClass } from "../../constants/classes";
 
 const RegisterSchema = yup.object({
   name: yup.string().required(),

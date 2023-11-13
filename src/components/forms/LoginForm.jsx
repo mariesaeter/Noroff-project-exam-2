@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form";
-import { iconClass, inputClass } from "../constants";
-import { BtnPrimary } from "./styled-components/Buttons";
+import { iconClass, inputClass } from "../../constants";
+import { BtnPrimary } from "../styled-components/Buttons";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect } from "react";
-import { loginUser } from "../authentication/loginUser";
+import { loginUser } from "../../authentication/loginUser";
 import { useNavigate } from "react-router-dom";
 
 const LoginSchema = yup.object({
