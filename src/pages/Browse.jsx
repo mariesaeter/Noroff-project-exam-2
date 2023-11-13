@@ -1,4 +1,4 @@
-import { Venues } from "../components/Venues";
+import { Venues } from "../components/venues/Venues";
 import { NavBgGradient } from "../components/styled-components/Navbg";
 
 export const Browse = () => {

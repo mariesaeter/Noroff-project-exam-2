@@ -1,7 +1,7 @@
 // import { useState } from "react";
 import { Link } from "react-router-dom";
-import { BrowseVenues } from "../components/BrowseVenues";
-import { LoginForm } from "../components/LoginForm";
+import { BrowseVenues } from "../components/venues/BrowseVenues";
+import { LoginForm } from "../components/forms/LoginForm";
 import { BtnSecondary } from "../components/styled-components/Buttons";
 import { NavBgSolid } from "../components/styled-components/Navbg";
 

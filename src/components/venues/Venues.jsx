@@ -1,7 +1,7 @@
 // import { Link } from "react-router-dom";
 import { useState } from "react";
-import { URL_VENUES } from "../constants/url";
-import { useApiGet } from "../hooks/api/useApiGet";
+import { URL_VENUES } from "../../constants/url";
+import { useApiGet } from "../../hooks/api/useApiGet";
 import { VenueCard } from "./VenueCard";
 import { Pagination } from "./Pagination";
 

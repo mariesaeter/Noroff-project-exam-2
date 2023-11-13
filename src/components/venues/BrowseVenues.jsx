@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { linkClass } from "../constants/classes";
+import { linkClass } from "../../constants/classes";
 
 export const BrowseVenues = () => {
   return (
