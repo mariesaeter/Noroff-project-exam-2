@@ -10,17 +10,21 @@ export function DesktopNavLinks() {
 
   if (isAuthenticated && isManager) {
     return (
-      <ul className="flex gap-6">
-        <NavManager />
-      </ul>
+      <>
+        <ul className="flex gap-6">
+          <NavManager />
+        </ul>
+      </>
     );
   }
 
   if (isAuthenticated && !isManager) {
     return (
-      <ul className="flex gap-6">
-        <NavCustomer />
-      </ul>
+      <>
+        <ul className="flex gap-6">
+          <NavCustomer />
+        </ul>
+      </>
     );
   }
 

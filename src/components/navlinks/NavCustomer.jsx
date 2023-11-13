@@ -1,5 +1,6 @@
 import { MainNavLinks } from "./MainNavLinks";
-import { StyledLink } from "../styled-components/NavLink";
+import { LogOutLink, StyledLink } from "../styled-components/NavLink";
+import { handleLogOut } from "../../authentication/logOutUser";
 
 export function NavCustomer() {
   return (
@@ -10,6 +11,9 @@ export function NavCustomer() {
       </li>
       <li>
         <StyledLink location="my-bookings">My bookings</StyledLink>
+      </li>
+      <li>
+        <LogOutLink handleLogOut={handleLogOut}>Log out</LogOutLink>
       </li>
     </>
   );
