@@ -1,18 +1,29 @@
 // import { Link } from "react-router-dom";
+import { useState } from "react";
 import { URL_VENUES } from "../constants/url";
 import { useApiGet } from "../hooks/api/useApiGet";
 import { VenueCard } from "./VenueCard";
+import { Pagination } from "./Pagination";
 
 export const Venues = () => {
   // const [pageCount, setPageCount] = useState(1);
   // const [totalPages, setTotalPages] = useState(0);
-  // const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const venuesPerPage = 10;
 
   // const itemsPerPage = 10;
   // const startIndex = currentPage * itemsPerPage;
   // const endIndex = startIndex + itemsPerPage;
 
   const { venues, isLoading, isError } = useApiGet(URL_VENUES);
+
+  const endIndex = currentPage * venuesPerPage;
+  const startIndex = endIndex - venuesPerPage;
+  const currentVenues = venues.slice(startIndex, endIndex);
+
+  let paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   // useEffect(() => {
   //   setTotalPages(venues.length / itemsPerPage);
@@ -42,7 +53,7 @@ export const Venues = () => {
   return (
     <>
       <div className="grid gap-5 md:grid-cols-2 lg:gap-12 xl:grid-cols-3">
-        {venues.map((venue) => (
+        {currentVenues.map((venue) => (
           // console.log(venue.name);
           <VenueCard
             id={venue.id}
@@ -55,6 +66,11 @@ export const Venues = () => {
           />
         ))}
       </div>
+      <Pagination
+        venuesPerPage={venuesPerPage}
+        totalVenues={venues.length}
+        paginate={paginate}
+      />
     </>
   );
 };
