@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 import { BrowseVenues } from "../components/BrowseVenues";
 import { LoginForm } from "../components/LoginForm";
 import { BtnSecondary } from "../components/styled-components/Buttons";
+import { NavBgSolid } from "../components/styled-components/Navbg";
 
 export const Login = () => {
   // const [token, setToken] = useState();
 
   return (
     <>
-      <div className="bg-[url('../assets/nav-bg.svg')] bg-cover py-4 h-20">
+      <NavBgSolid />
+      <div className="bg-[url('../assets/nav-bg.svg')] bg-cover py-4 h-20 ">
         <h1 className="text-center text-fantasy-blue"> Login page</h1>
       </div>
 

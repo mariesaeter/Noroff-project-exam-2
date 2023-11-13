@@ -12,7 +12,7 @@ export function HamburgerMenu() {
   const { openMenu, toggleMenu } = useContext(MenuContext);
 
   const openButton = (
-    <button className="space-y-2" onClick={() => toggleMenu()}>
+    <button className="space-y-2 z-20" onClick={() => toggleMenu()}>
       <span className="block h-0.5 w-8  bg-fantasy-blue"></span>
       <span className="block h-0.5 w-8  bg-fantasy-blue"></span>
       <span className="block h-0.5 w-8  bg-fantasy-blue"></span>

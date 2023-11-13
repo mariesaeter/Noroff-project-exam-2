@@ -5,7 +5,7 @@ import { DesktopMenu } from "./DesktopMenu";
 export function Nav() {
   return (
     <>
-      <nav className="flex">
+      <nav className="flex z-20">
         {/* <Link to="/login">
           <i className="fa-regular fa-user"></i>
         </Link> */}
