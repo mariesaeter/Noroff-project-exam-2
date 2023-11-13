@@ -5,6 +5,8 @@ import { useApiGet } from "../hooks/api/useApiGet";
 import { VenueCard } from "./VenueCard";
 import { Pagination } from "./Pagination";
 
+// https://hygraph.com/blog/react-pagination
+
 export const Venues = () => {
   // const [pageCount, setPageCount] = useState(1);
   // const [totalPages, setTotalPages] = useState(0);
@@ -23,6 +25,18 @@ export const Venues = () => {
 
   let paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
+  };
+
+  const previousPage = () => {
+    if (currentPage !== 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const nextPage = () => {
+    if (currentPage !== Math.ceil(venues.length / venuesPerPage)) {
+      setCurrentPage(currentPage + 1);
+    }
   };
 
   // useEffect(() => {
@@ -70,6 +84,9 @@ export const Venues = () => {
         venuesPerPage={venuesPerPage}
         totalVenues={venues.length}
         paginate={paginate}
+        previousPage={previousPage}
+        nextPage={nextPage}
+        currentPage={currentPage}
       />
     </>
   );
