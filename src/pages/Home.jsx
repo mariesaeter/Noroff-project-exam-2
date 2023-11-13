@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Venues } from "../components/Venues";
+import { Venues } from "../components/venues/Venues";
 import { Hero } from "../components/hero";
 import { BtnCta } from "../components/styled-components/Buttons";
 import { NavBgSolid } from "../components/styled-components/Navbg";
