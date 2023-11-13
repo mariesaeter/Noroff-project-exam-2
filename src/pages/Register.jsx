@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { RegisterForm } from "../components/RegisterForm";
+import { RegisterForm } from "../components/forms/RegisterForm";
 import { BtnSecondary } from "../components/styled-components/Buttons";
-import { BrowseVenues } from "../components/BrowseVenues";
+import { BrowseVenues } from "../components/venues/BrowseVenues";
 import { NavBgSolid } from "../components/styled-components/Navbg";
 
 export const Register = () => {

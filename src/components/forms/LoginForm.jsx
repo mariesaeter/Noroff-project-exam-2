@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { iconClass, inputClass } from "../../constants";
+import { iconClass, inputClass } from "../../constants/classes";
 import { BtnPrimary } from "../styled-components/Buttons";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
