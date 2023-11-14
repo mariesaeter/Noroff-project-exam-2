@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { loadLocal } from "../utils/localStorage";
 
 // https://www.educative.io/answers/how-to-handle-authentication-and-authorization-in-react-js
 const AuthContext = createContext();
@@ -12,8 +13,8 @@ const AuthProvider = ({ children }) => {
       setIsAuthenticated(false);
     } else {
       const accessToken = localStorage.getItem("accessToken");
-      const profile = localStorage.getItem("profile");
-      const manager = profile.venueManager;
+      const profileUser = loadLocal("profile");
+      const manager = profileUser.venueManager;
 
       setIsAuthenticated(!!accessToken);
       setIsManager(!!manager);
@@ -22,7 +23,10 @@ const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ isAuthenticated: isAuthenticated, isManager: isManager }}
+      value={{
+        isAuthenticated: isAuthenticated,
+        isManager: isManager,
+      }}
     >
       {children}
     </AuthContext.Provider>
