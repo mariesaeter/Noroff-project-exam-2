@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { fetchToken } from "../../utils/fetchToken";
 
-export function useApiGet(url) {
+export const useApiGet = (url) => {
   const [venues, setVenues] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -10,17 +11,18 @@ export function useApiGet(url) {
       try {
         setIsLoading(true);
         setIsError(false);
-        const fetchedVenues = await fetch(url);
+        const fetchedVenues = await fetchToken(url);
+
         const json = await fetchedVenues.json();
         setVenues(json);
-        console.log(json);
       } catch (error) {
         setIsError(true);
       } finally {
         setIsLoading(false);
       }
     }
+
     getVenues(url);
   }, [url]);
   return { venues, isLoading, isError };
-}
+};
