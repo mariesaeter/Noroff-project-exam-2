@@ -20,7 +20,7 @@ export const IndividualVenue = () => {
   const { name, price, id, description, maxGuests } = venues;
   const { location, media, meta } = venue;
   const { city, country } = location;
-  const { wifi, parking, breakfast, pets } = meta;
+  // const { wifi, parking, breakfast, pets } = meta;
 
   console.log(location);
   return (
@@ -35,10 +35,11 @@ export const IndividualVenue = () => {
           price={price}
         />
         <VenueFacilities
-          wifi={wifi}
-          parking={parking}
-          breakfast={breakfast}
-          pets={pets}
+          meta={meta}
+          // wifi={wifi}
+          // parking={parking}
+          // breakfast={breakfast}
+          // pets={pets}
         />
         <VenueBody description={description} maxGuests={maxGuests} />
         <VenueLocation city={city} country={country} />
