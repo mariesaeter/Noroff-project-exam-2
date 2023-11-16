@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useApiGet } from "../../hooks/api/useApiGet";
 import { URL_VENUE } from "../../constants/url";
-// import { VenueBody, VenueFacilities, VenueHead, VenueLocation } from "./index";
+import { VenueBody, VenueFacilities, VenueHead, VenueLocation } from "./index";
 
 export const IndividualVenue = () => {
   let params = useParams();
@@ -17,12 +17,32 @@ export const IndividualVenue = () => {
     return <div>There was an error</div>;
   }
 
-  const { location, media } = venue;
+  const { name, price, id, description, maxGuests } = venues;
+  const { location, media, meta } = venue;
+  const { city, country } = location;
+  const { wifi, parking, breakfast, pets } = meta;
 
   console.log(location);
   return (
     <>
-      <div key={venues.id}>{media[0]}</div>
+      <div key={id}>
+        <h1>{name}</h1>
+        <VenueHead
+          name={name}
+          city={city}
+          country={country}
+          media={media[0]}
+          price={price}
+        />
+        <VenueFacilities
+          wifi={wifi}
+          parking={parking}
+          breakfast={breakfast}
+          pets={pets}
+        />
+        <VenueBody description={description} maxGuests={maxGuests} />
+        <VenueLocation city={city} country={country} />
+      </div>
     </>
   );
 };
