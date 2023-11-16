@@ -3,6 +3,7 @@ import { fetchToken } from "../../utils/fetchToken";
 
 export const useApiGet = (url) => {
   const [venues, setVenues] = useState([]);
+  const [venue, setVenue] = useState({ location: "", meta: "", media: [] });
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -13,8 +14,13 @@ export const useApiGet = (url) => {
         setIsError(false);
         const fetchedVenues = await fetchToken(url);
 
-        const json = await fetchedVenues.json();
-        setVenues(json);
+        const response = await fetchedVenues.json();
+        setVenues(response);
+        setVenue({
+          location: response.location,
+          meta: response.meta,
+          media: response.media,
+        });
       } catch (error) {
         setIsError(true);
       } finally {
@@ -24,5 +30,5 @@ export const useApiGet = (url) => {
 
     getVenues(url);
   }, [url]);
-  return { venues, isLoading, isError };
+  return { venue, venues, isLoading, isError };
 };
