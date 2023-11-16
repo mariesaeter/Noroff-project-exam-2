@@ -1,9 +1,6 @@
-export const VenueHead = ({ name, city, country, media, price }) => {
+export const VenueHead = ({ name, media, price }) => {
   return (
     <>
-      <small className="text-fantasy-blue">
-        {city}, {country}
-      </small>
       <div className="h-56 sm:h-72 md:h-96 relative">
         <img
           className="w-full object-cover rounded-lg h-56 sm:h-72 md:h-96"

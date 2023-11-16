@@ -1,7 +1,12 @@
-export const VenueLocation = ({ city, country }) => {
+export const VenueLocation = ({ location }) => {
+  const { city, country } = location;
   return (
-    <div>
-      {city} {country}
-    </div>
+    <>
+      <h2>Location</h2>
+      <div>Map</div>
+      <div>
+        {city}, {country}
+      </div>
+    </>
   );
 };

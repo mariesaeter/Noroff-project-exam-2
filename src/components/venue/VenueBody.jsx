@@ -1,7 +1,8 @@
 export const VenueBody = ({ description, maxGuests }) => {
   return (
-    <div>
-      {description} {maxGuests}
-    </div>
+    <>
+      <p>{description}</p>
+      <p>Max number of guests: {maxGuests}</p>
+    </>
   );
 };

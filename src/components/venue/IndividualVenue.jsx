@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useApiGet } from "../../hooks/api/useApiGet";
 import { URL_VENUE } from "../../constants/url";
 import { VenueBody, VenueFacilities, VenueHead, VenueLocation } from "./index";
+import { BookingForm } from "../forms/BookingForm";
 
 export const IndividualVenue = () => {
   let params = useParams();
@@ -25,24 +26,27 @@ export const IndividualVenue = () => {
   console.log(location);
   return (
     <>
-      <div key={id}>
-        <h1>{name}</h1>
-        <VenueHead
-          name={name}
-          city={city}
-          country={country}
-          media={media[0]}
-          price={price}
-        />
-        <VenueFacilities
-          meta={meta}
-          // wifi={wifi}
-          // parking={parking}
-          // breakfast={breakfast}
-          // pets={pets}
-        />
-        <VenueBody description={description} maxGuests={maxGuests} />
-        <VenueLocation city={city} country={country} />
+      <h1>{name}</h1>
+      <small className="text-fantasy-blue">
+        {city}, {country}
+      </small>
+      <div
+        key={id}
+        className="lg:grid lg:grid-cols-[1fr_minmax(0,24rem)] lg:gap-6"
+      >
+        <div>
+          <VenueHead name={name} media={media[0]} price={price} />
+          <VenueFacilities
+            meta={meta}
+            // wifi={wifi}
+            // parking={parking}
+            // breakfast={breakfast}
+            // pets={pets}
+          />
+          <VenueBody description={description} maxGuests={maxGuests} />
+          <VenueLocation location={location} />
+        </div>
+        <BookingForm />
       </div>
     </>
   );
