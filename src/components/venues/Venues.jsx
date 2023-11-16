@@ -66,28 +66,30 @@ export const Venues = () => {
 
   return (
     <>
-      <div className="grid gap-5 md:grid-cols-2 lg:gap-12 xl:grid-cols-3">
-        {currentVenues.map((venue) => (
-          // console.log(venue.name);
-          <VenueCard
-            id={venue.id}
-            name={venue.name}
-            media={venue.media[0]}
-            city={venue.location.city}
-            country={venue.location.country}
-            price={venue.price}
-            key={venue.id}
-          />
-        ))}
+      <div>
+        <div className="grid gap-5 md:grid-cols-2 lg:gap-12 xl:grid-cols-3">
+          {currentVenues.map((venue) => (
+            // console.log(venue.name);
+            <VenueCard
+              id={venue.id}
+              name={venue.name}
+              media={venue.media[0]}
+              city={venue.location.city}
+              country={venue.location.country}
+              price={venue.price}
+              key={venue.id}
+            />
+          ))}
+        </div>
+        <Pagination
+          venuesPerPage={venuesPerPage}
+          totalVenues={venues.length}
+          paginate={paginate}
+          previousPage={previousPage}
+          nextPage={nextPage}
+          currentPage={currentPage}
+        />
       </div>
-      <Pagination
-        venuesPerPage={venuesPerPage}
-        totalVenues={venues.length}
-        paginate={paginate}
-        previousPage={previousPage}
-        nextPage={nextPage}
-        currentPage={currentPage}
-      />
     </>
   );
 };
