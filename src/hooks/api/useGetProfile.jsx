@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { URL_PROFILE } from "../../constants/url";
 import { fetchToken } from "../../utils/fetchToken";
 
-export const useGetProfile = async (name) => {
-  const [userProfile, setUserProfile] = useState([]);
+export const useGetProfile = async (url) => {
+  const [userProfile, setUserProfile] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   useEffect(() => {
@@ -11,7 +10,7 @@ export const useGetProfile = async (name) => {
       try {
         setIsLoading(true);
         setIsError(false);
-        const response = await fetchToken(`${URL_PROFILE}/${name}`);
+        const response = await fetchToken(url);
         const json = await response.json();
         setUserProfile(json);
       } catch (error) {
@@ -21,8 +20,9 @@ export const useGetProfile = async (name) => {
         setIsLoading(false);
       }
     }
-    getProfile(name);
-  }, [name]);
+    getProfile(url);
+  }, [url]);
 
+  console.log(userProfile);
   return { userProfile, isLoading, isError };
 };
