@@ -3,3 +3,4 @@ export const URL_VENUE = `${URL_BASE}venues`;
 export const URL_VENUES = `${URL_BASE}venues?limit=30`;
 export const URL_LOGIN = `${URL_BASE}auth/login`;
 export const URL_REGISTER = `${URL_BASE}auth/register`;
+export const URL_PROFILE = `${URL_BASE}profiles`;
