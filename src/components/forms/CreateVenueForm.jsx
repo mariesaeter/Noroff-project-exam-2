@@ -5,14 +5,19 @@ import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 import { Input, InputCheckbox } from "./Input";
 import { radioClass, textareaClass } from "../../constants/classes";
+import { apiPost } from "../../hooks/api/useApiPost";
 
 const CreateVenueSchema = yup.object({
-  title: yup.string().required(),
+  name: yup.string().required(),
   maxGuests: yup.number().required(),
+  price: yup.number().required(),
   media: yup.string(),
   description: yup.string().required(),
   meta: yup.object(),
-  location: yup.object(),
+  location: yup.object({
+    lng: yup.number(),
+    lat: yup.number(),
+  }),
   city: yup.string(),
   country: yup.string(),
 });
@@ -32,6 +37,13 @@ export const CreateVenueForm = () => {
   const useOnSubmit = async (data) => {
     try {
       console.log(data);
+      console.log(data.media);
+      data.media = data.media.split(" ");
+
+      await apiPost(data);
+      if (isSubmitSuccessful) {
+        console.log("success!");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -46,12 +58,13 @@ export const CreateVenueForm = () => {
         <div>
           <Input
             type="string"
-            name="title"
+            name="name"
             label="Title"
             placeholder="Title here"
             register={register}
-            error={errors.title?.message}
+            error={errors.name?.message}
           />
+
           <Input
             type="string"
             name="media"
@@ -188,11 +201,11 @@ export const CreateVenueForm = () => {
             />
             <Input
               type="number"
-              name="location.long"
+              name="location.lng"
               label="Longitude"
               placeholder="-180 - 180"
               register={register}
-              error={errors.long?.message}
+              error={errors.lng?.message}
             />
           </div>
         </div>
