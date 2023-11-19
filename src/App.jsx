@@ -26,7 +26,10 @@ export default function App() {
           <Route path="register" element={<Register />} />
           <Route path="profile/:name" element={<Profile />} />
           <Route path="my-bookings" element={<MyBookings />} />
-          <Route path="manage-venues" element={<ManageVenues />} />
+          <Route
+            path="profile/:name/manage-venues"
+            element={<ManageVenues />}
+          />
           <Route path="create-venue" element={<CreateVenue />} />
         </Route>
       </Routes>
