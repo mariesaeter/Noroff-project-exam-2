@@ -7,7 +7,7 @@ import { Input, InputCheckbox } from "./Input";
 import { radioClass, textareaClass } from "../../constants/classes";
 import { apiPost } from "../../hooks/api/useApiPost";
 
-const CreateVenueSchema = yup.object({
+export const CreateVenueSchema = yup.object({
   name: yup.string().required(),
   maxGuests: yup.number().required(),
   price: yup.number().required(),
@@ -22,13 +22,13 @@ const CreateVenueSchema = yup.object({
   country: yup.string(),
 });
 
-export const CreateVenueForm = () => {
+export const CreateVenueForm = ({ schema }) => {
   const {
     reset,
     register,
     handleSubmit,
     formState: { errors, isSubmitSuccessful },
-  } = useForm({ resolver: yupResolver(CreateVenueSchema) });
+  } = useForm({ resolver: yupResolver(schema) });
 
   useEffect(() => {
     reset();

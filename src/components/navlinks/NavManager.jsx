@@ -21,7 +21,9 @@ export function NavManager() {
         <StyledLink location={`profile/${profile.name}`}>Profile</StyledLink>
       </li>
       <li>
-        <StyledLink location="manage-venues">Manage venues</StyledLink>
+        <StyledLink location={`profile/${profile.name}/manage-venues`}>
+          Manage venues
+        </StyledLink>
       </li>
       <li>
         <StyledLink location="create-venue">Create venue</StyledLink>
