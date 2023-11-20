@@ -22,7 +22,7 @@ export const CreateVenueSchema = yup.object({
   country: yup.string(),
 });
 
-export const CreateVenueForm = ({ schema }) => {
+export const CreateVenueForm = ({ schema, btnText }) => {
   const {
     reset,
     register,
@@ -211,7 +211,7 @@ export const CreateVenueForm = ({ schema }) => {
         </div>
         <div></div>
         <div className="block  relative text-earth-brown  mb-2.5">
-          <BtnPrimary btnText="Add new venue" type="submit" />
+          <BtnPrimary btnText={btnText} type="submit" />
         </div>
       </form>
     </div>

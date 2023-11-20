@@ -10,7 +10,7 @@ export const CreateVenue = () => {
       <NavBgGradient />
       <div className="mx-5 my-5 md:my-10 md:mx-16 ">
         <h1 className="mb-5">Create venue page</h1>
-        <CreateVenueForm schema={CreateVenueSchema} />
+        <CreateVenueForm schema={CreateVenueSchema} btnText="Add new venue" />
       </div>
     </>
   );
