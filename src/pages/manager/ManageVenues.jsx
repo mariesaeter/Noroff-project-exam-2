@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { NavBgGradient } from "../../components/styled-components/Navbg";
-import { URL_PROFILE } from "../../constants/url";
+import { URL_PROFILE, URL_VENUE } from "../../constants/url";
 import { useApiAuth } from "../../hooks/api/useGetProfile";
 import { linkClass } from "../../constants/classes";
 import { LinkPrimary } from "../../components/styled-components/Buttons";
@@ -8,6 +8,7 @@ import { Modal } from "../../components/Modal";
 import { VenueForm } from "../../components/forms/VenueForm";
 import * as yup from "yup";
 import { useOnSubmitUpdateVenue } from "../../components/forms/onSubmit";
+import { apiDelete } from "../../hooks/api/useApiDelete";
 
 export const UpdateVenueSchema = yup.object({
   name: yup.string().notRequired(),
@@ -39,6 +40,7 @@ export const ManageVenues = () => {
   if (isError) {
     return <div>There was an error</div>;
   }
+
   return (
     <>
       <NavBgGradient />
@@ -82,7 +84,10 @@ export const ManageVenues = () => {
                   </div>
                 </div>
               </div>
-              <button className="fa-solid fa-trash-can text-earth-brown"></button>
+              <button
+                className="fa-solid fa-trash-can text-earth-brown"
+                onClick={() => apiDelete(`${URL_VENUE}/${venue.id}`)}
+              ></button>
             </li>
           ))}
         </ul>
