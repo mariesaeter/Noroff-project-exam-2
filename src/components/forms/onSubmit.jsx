@@ -1,0 +1,30 @@
+import { URL_VENUE } from "../../constants/url";
+import { apiPost } from "../../hooks/api/useApiPost";
+import { apiPut } from "../../hooks/api/useApiPut";
+
+export const useOnSubmitCreateVenue = async (data) => {
+  try {
+    console.log(data);
+    console.log(data.media);
+    data.media = data.media.split(" ");
+
+    await apiPost(data);
+  } catch (error) {
+    console.log(error);
+  }
+  // Try to get it to only navigate if the login is successful.
+};
+
+export const useOnSubmitUpdateVenue = async (data) => {
+  try {
+    console.log(data);
+
+    if (Array.isArray(data.media) === false) {
+      data.media = data.media.split(" ");
+    }
+
+    await apiPut(data, `${URL_VENUE}/${data.id}`);
+  } catch (error) {
+    console.log(error);
+  }
+};

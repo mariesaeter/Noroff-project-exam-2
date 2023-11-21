@@ -4,6 +4,27 @@ import { URL_PROFILE } from "../../constants/url";
 import { useApiAuth } from "../../hooks/api/useGetProfile";
 import { linkClass } from "../../constants/classes";
 import { LinkPrimary } from "../../components/styled-components/Buttons";
+import { Modal } from "../../components/Modal";
+import { VenueForm } from "../../components/forms/VenueForm";
+import * as yup from "yup";
+import { useOnSubmitUpdateVenue } from "../../components/forms/onSubmit";
+
+export const UpdateVenueSchema = yup.object({
+  name: yup.string().notRequired(),
+  maxGuests: yup.number().notRequired(),
+  price: yup.number().notRequired(),
+  media: yup.mixed().notRequired(),
+  description: yup.string().notRequired(),
+  meta: yup.object().notRequired(),
+  location: yup
+    .object({
+      lng: yup.number(),
+      lat: yup.number(),
+    })
+    .notRequired(),
+  city: yup.string().notRequired(),
+  country: yup.string().notRequired(),
+});
 
 export const ManageVenues = () => {
   let params = useParams();
@@ -46,7 +67,18 @@ export const ManageVenues = () => {
                     <button className={`${linkClass} mr-3 md:mr-5 lg:mr-10`}>
                       View bookings
                     </button>
-                    <button className={linkClass}>Edit venue</button>
+                    <Modal modalLinkText="Edit venue">
+                      <div className="mx-auto bg-body-white w-full p-2 rounded-lg">
+                        <VenueForm
+                          schema={UpdateVenueSchema}
+                          btnText="Update venue"
+                          id={venue.id}
+                          values={venue}
+                          useOnSubmit={useOnSubmitUpdateVenue}
+                        />
+                      </div>
+                    </Modal>
+                    {/* <button className={linkClass}>Edit venue</button> */}
                   </div>
                 </div>
               </div>

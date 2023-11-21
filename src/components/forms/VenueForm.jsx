@@ -1,57 +1,26 @@
 import { BtnPrimary } from "../styled-components/Buttons";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 import { Input, InputCheckbox } from "./Input";
 import { radioClass, textareaClass } from "../../constants/classes";
-import { apiPost } from "../../hooks/api/useApiPost";
 
-export const CreateVenueSchema = yup.object({
-  name: yup.string().required(),
-  maxGuests: yup.number().required(),
-  price: yup.number().required(),
-  media: yup.string(),
-  description: yup.string().required(),
-  meta: yup.object(),
-  location: yup.object({
-    lng: yup.number(),
-    lat: yup.number(),
-  }),
-  city: yup.string(),
-  country: yup.string(),
-});
-
-export const CreateVenueForm = ({ schema }) => {
+export const VenueForm = ({ schema, btnText, useOnSubmit, values, id }) => {
   const {
     reset,
     register,
     handleSubmit,
     formState: { errors, isSubmitSuccessful },
-  } = useForm({ resolver: yupResolver(schema) });
+  } = useForm({ resolver: yupResolver(schema), defaultValues: values });
 
   useEffect(() => {
     reset();
   }, [isSubmitSuccessful, reset]);
 
-  const useOnSubmit = async (data) => {
-    try {
-      console.log(data);
-      console.log(data.media);
-      data.media = data.media.split(" ");
-
-      await apiPost(data);
-      if (isSubmitSuccessful) {
-        console.log("success!");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-    // Try to get it to only navigate if the login is successful.
-  };
   return (
     <div>
       <form
+        id={id}
         className="w-[80%] lg:w-[50%] mx-auto"
         onSubmit={handleSubmit(useOnSubmit)}
       >
@@ -211,7 +180,7 @@ export const CreateVenueForm = ({ schema }) => {
         </div>
         <div></div>
         <div className="block  relative text-earth-brown  mb-2.5">
-          <BtnPrimary btnText="Add new venue" type="submit" />
+          <BtnPrimary btnText={btnText} type="submit" />
         </div>
       </form>
     </div>
