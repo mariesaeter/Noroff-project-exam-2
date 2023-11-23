@@ -3,6 +3,14 @@ import { useApiGet } from "../../hooks/api/useApiGet";
 import { URL_VENUE } from "../../constants/url";
 import { VenueBody, VenueFacilities, VenueHead, VenueLocation } from "./index";
 import { BookingForm } from "../forms/BookingForm";
+import * as yup from "yup";
+import { useOnSubmitBookVenue } from "../forms/onSubmit";
+
+const BookingSchema = yup.object({
+  dateFrom: yup.string().notRequired(),
+  dateTo: yup.string().notRequired(),
+  guests: yup.number().notRequired(),
+});
 
 export const IndividualVenue = () => {
   let params = useParams();
@@ -23,7 +31,7 @@ export const IndividualVenue = () => {
   const { city, country } = location;
   // const { wifi, parking, breakfast, pets } = meta;
 
-  console.log(location);
+  console.log(id);
   return (
     <>
       <h1>{name}</h1>
@@ -46,7 +54,10 @@ export const IndividualVenue = () => {
           <VenueBody description={description} maxGuests={maxGuests} />
           <VenueLocation location={location} />
         </div>
-        <BookingForm />
+        <BookingForm
+          schema={BookingSchema}
+          useOnSubmit={useOnSubmitBookVenue}
+        />
       </div>
     </>
   );

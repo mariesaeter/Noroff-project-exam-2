@@ -1,4 +1,4 @@
-import { URL_VENUE } from "../../constants/url";
+import { URL_BOOKINGS, URL_VENUE } from "../../constants/url";
 import { apiPost } from "../../hooks/api/useApiPost";
 import { apiPut } from "../../hooks/api/useApiPut";
 
@@ -8,7 +8,7 @@ export const useOnSubmitCreateVenue = async (data) => {
     console.log(data.media);
     data.media = data.media.split(" ");
 
-    await apiPost(data);
+    await apiPost(data, URL_VENUE);
   } catch (error) {
     console.log(error);
   }
@@ -27,4 +27,15 @@ export const useOnSubmitUpdateVenue = async (data) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const useOnSubmitBookVenue = async (data) => {
+  try {
+    console.log(data);
+
+    await apiPost(data, URL_BOOKINGS);
+  } catch (error) {
+    console.log(error);
+  }
+  // Try to get it to only navigate if the login is successful.
 };

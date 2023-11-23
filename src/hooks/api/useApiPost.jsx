@@ -1,11 +1,10 @@
-import { URL_VENUE } from "../../constants/url";
 import { fetchToken } from "../../utils/fetchToken";
 
-export const apiPost = async (data) => {
+export const apiPost = async (data, url) => {
   const body = JSON.stringify(data);
 
   try {
-    const response = await fetchToken(URL_VENUE, {
+    const response = await fetchToken(url, {
       method: "POST",
       body,
     });

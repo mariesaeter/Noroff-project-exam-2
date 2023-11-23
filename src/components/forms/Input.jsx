@@ -20,7 +20,15 @@ import { checkboxClass } from "../../constants/classes";
 </div> */
 }
 
-export const Input = ({ type, name, label, placeholder, error, register }) => {
+export const Input = ({
+  type,
+  name,
+  label,
+  placeholder,
+  error,
+  register,
+  value,
+}) => {
   return (
     <div>
       <label htmlFor={name}>{label}</label>
@@ -31,6 +39,7 @@ export const Input = ({ type, name, label, placeholder, error, register }) => {
           {...register(name)}
           className={inputClass}
           placeholder={placeholder}
+          value={value}
         />
         <p className="text-error-dark text-sm mt-1">{error}</p>
       </div>
