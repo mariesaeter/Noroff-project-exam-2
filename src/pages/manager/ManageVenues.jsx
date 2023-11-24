@@ -9,6 +9,8 @@ import { VenueForm } from "../../components/forms/VenueForm";
 import * as yup from "yup";
 import { useOnSubmitUpdateVenue } from "../../components/forms/onSubmit";
 import { apiDelete } from "../../hooks/api/useApiDelete";
+import { ToggleButton } from "../../components/ToggleButton";
+import { ManagerBookings } from "../../components/bookings/ManagerBookings";
 
 export const UpdateVenueSchema = yup.object({
   name: yup.string().notRequired(),
@@ -30,7 +32,7 @@ export const UpdateVenueSchema = yup.object({
 export const ManageVenues = () => {
   let params = useParams();
 
-  const url = `${URL_PROFILE}/${params.name}/venues`;
+  const url = `${URL_PROFILE}/${params.name}/venues?_bookings=true`;
   // const profileUser = loadLocal("profile");
   const { data, isLoading, isError } = useApiAuth(url);
 
@@ -46,7 +48,7 @@ export const ManageVenues = () => {
       <NavBgGradient />
       <div className="mx-5 my-5 md:my-10 md:mx-16 ">
         <h1 className="mb-5">Manage venues</h1>
-        <ul className="flex flex-col items-center gap-5 mb-10">
+        <ul className="flex flex-col items-center gap-5 mb-10 relative">
           {data.map((venue) => (
             <li
               className="flex justify-between w-full md:w-3/4 lg:w-7/12 "
@@ -66,9 +68,14 @@ export const ManageVenues = () => {
                     </small>
                   </div>
                   <div>
-                    <button className={`${linkClass} mr-3 md:mr-5 lg:mr-10`}>
-                      View bookings
-                    </button>
+                    <ToggleButton
+                      classes={`${linkClass} mr-3 md:mr-5 lg:mr-10`}
+                      btnTextClose="Hide bookings"
+                      btnTextOpen="View bookings"
+                    >
+                      <ManagerBookings bookings={venue.bookings} />
+                    </ToggleButton>
+
                     <Modal modalLinkText="Edit venue">
                       <div className="mx-auto bg-body-white w-full p-2 rounded-lg">
                         <VenueForm
