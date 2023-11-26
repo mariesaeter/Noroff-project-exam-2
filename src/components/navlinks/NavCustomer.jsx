@@ -13,7 +13,9 @@ export function NavCustomer() {
         <StyledLink location={`profile/${profile.name}`}>Profile</StyledLink>
       </li>
       <li>
-        <StyledLink location="my-bookings">My bookings</StyledLink>
+        <StyledLink location={`profile/${profile.name}/my-bookings`}>
+          My bookings
+        </StyledLink>
       </li>
       <li>
         <LogOutLink handleLogOut={handleLogOut}>Log out</LogOutLink>
