@@ -2,6 +2,8 @@ import { URL_BOOKINGS } from "../../constants/url";
 import { useApiAuth } from "../../hooks/api/useGetProfile";
 import { formatDate } from "../../utils/formatDate";
 
+import { BookingCard } from "./BookingCard";
+
 const daysCount = (dateFrom, dateTo) => {
   const daysTimeBetween =
     new Date(dateTo).getTime() - new Date(dateFrom).getTime();
@@ -30,30 +32,43 @@ export const CustomerBooking = ({ id }) => {
     console.log(dateStart);
 
     return (
-      <li className="border-2 border-fantasy-blue rounded-lg p-5 w-full">
-        <h3>{venue.name}</h3>
-        <div className="flex">
-          <img
-            className="rounded-lg h-20 lg:h-24 w-20 lg:w-24 object-cover"
-            src={venue.media[0]}
-            alt={venue.name}
-          />
-          <div>
-            <div>
-              <h4>Your stay</h4>
-              <p>
-                {dateStart} - {dateEnd} ({days} days)
-              </p>
-            </div>
-            <div>
-              <h4>Price</h4>
-              <p>
-                ${price} (${venue.price} / night)
-              </p>
-            </div>
-          </div>
-        </div>
-      </li>
+      <BookingCard
+        name={venue.name}
+        media={venue.media[0]}
+        dateStart={dateStart}
+        dateEnd={dateEnd}
+        days={days}
+        totalPrice={price}
+        price={venue.price}
+        id={venue.id}
+      />
+      // <li className="border-2 border-fantasy-blue rounded-lg p-5 w-full">
+      //   <h3>{venue.name}</h3>
+      //   <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-3 mb-2 items-center">
+      //     <img
+      //       className="rounded-lg h-full object-cover"
+      //       src={venue.media[0]}
+      //       alt={venue.name}
+      //     />
+      //     <div className="col-span-2 sm:col-span-3 lg:flex gap-5">
+      //       <div>
+      //         <h4>Your stay</h4>
+      //         <p>
+      //           {dateStart} - {dateEnd} ({days} days)
+      //         </p>
+      //       </div>
+      //       <div>
+      //         <h4>Price</h4>
+      //         <p>
+      //           ${price} (${venue.price} / night)
+      //         </p>
+      //       </div>
+      //     </div>
+      //     <div className="col-span-3 sm:col-span-4 justify-self-center lg:col-span-1">
+      //       <LinkSecondary text="View details" location={`../${venue.id}`} />
+      //     </div>
+      //   </div>
+      // </li>
     );
   }
 

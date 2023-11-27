@@ -18,7 +18,7 @@ export const VenueCard = (props) => {
         <p className="text-fantasy-blue">
           {props.city}, {props.country}
         </p>
-        <p>{props.price}$ / night</p>
+        <p>${props.price} / night</p>
       </div>
     </Link>
   );

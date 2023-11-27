@@ -11,7 +11,18 @@ export const MyBookings = () => {
   // const profileUser = loadLocal("profile");
   const { data, isLoading, isError } = useApiAuth(url);
 
-  console.log(data);
+  const pastBookings = data.filter(
+    (bookings) => Date.parse(bookings.dateTo) < new Date()
+  );
+  const futureBookings = data.filter(
+    (bookings) => Date.parse(bookings.dateFrom) > new Date()
+  );
+
+  const currentBookings = data.filter(
+    (bookings) =>
+      Date.parse(bookings.dateFrom) < new Date() < Date.parse(bookings.dateTo)
+  );
+
   if (isLoading) {
     return <div>Is loading</div>;
   }
@@ -23,8 +34,21 @@ export const MyBookings = () => {
       <NavBgGradient />
       <div className="mx-5 my-5 md:my-10 md:mx-16 ">
         <h1 className="mb-5">My bookings</h1>
+        <h2>Ongoing stay</h2>
         <ul className="flex flex-col items-center gap-5 mb-10 relative">
-          {data.map((booking) => (
+          {currentBookings.map((booking) => (
+            <CustomerBooking key={booking.id} id={booking.id} />
+          ))}
+        </ul>
+        <h2>Your next stay</h2>
+        <ul className="flex flex-col items-center gap-5 mb-10 relative">
+          {futureBookings.map((booking) => (
+            <CustomerBooking key={booking.id} id={booking.id} />
+          ))}
+        </ul>
+        <h2>Previous stays</h2>
+        <ul className="flex flex-col items-center gap-5 mb-10 relative">
+          {pastBookings.map((booking) => (
             <CustomerBooking key={booking.id} id={booking.id} />
           ))}
         </ul>
