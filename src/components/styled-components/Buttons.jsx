@@ -49,7 +49,7 @@ const WideLink = ({ location, classes, text }) => {
   return (
     <Link
       to={location}
-      className={`w-full h-10 tracking-wider rounded-lg transition ease-in-out duration-500  mb-2.5 ${classes} `}
+      className={`w-full h-10 tracking-wider rounded-lg transition ease-in-out duration-500  mb-2.5 py-2 px-3 ${classes} `}
     >
       {text}
     </Link>

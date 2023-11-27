@@ -11,7 +11,7 @@ export const Home = () => {
       <Hero />
       <div className="mx-5 lg:mx-32">
         <div className="flex justify-center">
-          <Link to="/browse-venues">
+          <Link to="/browse-venues" className="w-1/2">
             <BtnCta btnText="Browse all  venues" />
           </Link>
         </div>

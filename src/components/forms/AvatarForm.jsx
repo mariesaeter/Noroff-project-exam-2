@@ -42,7 +42,9 @@ export const AvatarForm = (oldAvatar) => {
       onSubmit={handleSubmit(useOnSubmit)}
       className=" mx-auto bg-body-white w-full p-2 rounded-lg"
     >
-      <label htmlFor="avatar">Avatar</label>
+      <label htmlFor="avatar" className="!text-left block">
+        Avatar
+      </label>
       <div className=" block mx-auto relative text-earth-brown h-11 mb-2.5">
         <i className={iconClass("fa-image")}></i>
         <input
