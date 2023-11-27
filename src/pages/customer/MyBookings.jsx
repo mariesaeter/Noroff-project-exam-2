@@ -53,7 +53,9 @@ export const MyBookings = () => {
             <CustomerBooking key={booking.id} id={booking.id} />
           ))}
         </ul>
-        <LinkPrimary text="Browse venues" location="../browse-venues" />
+        <div className="text-center">
+          <LinkPrimary text="Browse venues" location="../browse-venues" />
+        </div>
       </div>
     </>
   );
