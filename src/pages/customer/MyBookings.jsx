@@ -3,6 +3,7 @@ import { NavBgGradient } from "../../components/styled-components/Navbg";
 import { URL_PROFILE } from "../../constants/url";
 import { useApiAuth } from "../../hooks/api/useGetProfile";
 import { CustomerBooking } from "../../components/bookings/CustomerBooking";
+import { LinkPrimary } from "../../components/styled-components/Buttons";
 
 export const MyBookings = () => {
   let params = useParams();
@@ -52,6 +53,7 @@ export const MyBookings = () => {
             <CustomerBooking key={booking.id} id={booking.id} />
           ))}
         </ul>
+        <LinkPrimary text="Browse venues" location="../browse-venues" />
       </div>
     </>
   );
