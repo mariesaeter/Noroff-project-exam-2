@@ -19,9 +19,14 @@ export const Venues = () => {
 
   const { venues, isLoading, isError } = useApiGet(URL_VENUES);
 
+  const filteredVenues = venues.filter(
+    (x) => x.location.zip === "book" || x.location.zip === "movie"
+  );
+  const data = filteredVenues;
+
   const endIndex = currentPage * venuesPerPage;
   const startIndex = endIndex - venuesPerPage;
-  const currentVenues = venues.slice(startIndex, endIndex);
+  const currentVenues = data.slice(startIndex, endIndex);
 
   let paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -34,7 +39,7 @@ export const Venues = () => {
   };
 
   const nextPage = () => {
-    if (currentPage !== Math.ceil(venues.length / venuesPerPage)) {
+    if (currentPage !== Math.ceil(data.length / venuesPerPage)) {
       setCurrentPage(currentPage + 1);
     }
   };
