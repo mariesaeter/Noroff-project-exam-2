@@ -8,6 +8,10 @@ export const useOnSubmitCreateVenue = async (data) => {
     console.log(data.media);
     data.media = data.media.split(" ");
 
+    data.location.lat = parseFloat(data.location.lat);
+    data.location.lng = parseFloat(data.location.lng);
+    console.log(data);
+
     await apiPost(data, URL_VENUE);
     alert(`Your venue ${data.name} was created successfully!`);
   } catch (error) {
