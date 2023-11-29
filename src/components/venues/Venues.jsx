@@ -88,7 +88,7 @@ export const Venues = () => {
         </div>
         <Pagination
           venuesPerPage={venuesPerPage}
-          totalVenues={venues.length}
+          totalVenues={data.length}
           paginate={paginate}
           previousPage={previousPage}
           nextPage={nextPage}
