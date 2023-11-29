@@ -25,7 +25,7 @@ const CreateVenueSchema = yup.object({
     .required(),
   meta: yup.object(),
   location: yup.object({}),
-  address: yup.string().required("Book or movie needs to be added"),
+  address: yup.string().notRequired("Book or movie needs to be added"),
   lng: yup
     .number("Must be a number")
     .typeError("longitude needs to be a number")
@@ -38,7 +38,10 @@ const CreateVenueSchema = yup.object({
     .min(-90, "Latitude can't be lower than -90 degrees")
     .max(90, "Latitude can't be more than 90 degrees")
     .notRequired(),
-  zip: yup.string().required("You need to choose either book or movie"),
+  zip: yup
+    .string()
+    .typeError("You need to choose either book or movie")
+    .notRequired(),
   city: yup
     .string(1, "City needs to be at least 1 character long")
     .notRequired(),
