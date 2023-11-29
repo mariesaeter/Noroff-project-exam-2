@@ -1,7 +1,7 @@
 // import { useReducer } from "react";
 
 import { inputClass } from "../../constants";
-import { checkboxClass } from "../../constants/classes";
+import { checkboxClass, iconClass } from "../../constants/classes";
 
 {
   /* <label htmlFor="maxGuests">Number of people</label>
@@ -19,6 +19,31 @@ import { checkboxClass } from "../../constants/classes";
   </p>
 </div> */
 }
+
+export const InputIcon = ({
+  type,
+  name,
+  label,
+  placeholder,
+  error,
+  register,
+  icon,
+}) => {
+  <>
+    <label htmlFor={name}>{label}</label>
+    <div className=" block group relative text-earth-brown mb-2.5">
+      <i className={iconClass(icon)}></i>
+      <input
+        type={type}
+        name={name}
+        {...register(name)}
+        className={inputClass}
+        placeholder={placeholder}
+      />
+      <p className="text-error-dark text-sm mt-1">{error}</p>
+    </div>
+  </>;
+};
 
 export const Input = ({
   type,
