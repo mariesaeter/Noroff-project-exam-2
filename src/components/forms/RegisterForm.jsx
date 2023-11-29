@@ -1,17 +1,26 @@
 import { useForm } from "react-hook-form";
-import { iconClass, inputClass } from "../../constants";
 import { BtnPrimary } from "../styled-components/Buttons";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect } from "react";
 import { registerUser } from "../../authentication/registerUser";
-import { checkboxClass } from "../../constants/classes";
+import { Input, InputCheckbox } from "./Input";
 
 const RegisterSchema = yup.object({
-  name: yup.string().required(),
-  email: yup.string().email().required(),
-  password: yup.string().min(8).required(),
-  avatar: yup.string(),
+  name: yup
+    .string()
+    .required(
+      "Name must not contain punctuation symbols except from underscore (_)"
+    ),
+  email: yup
+    .string()
+    .email()
+    .required("Email must end with 'stud.noroff.no' or 'noroff.no'"),
+  password: yup
+    .string()
+    .min(8, "The password must be at least 8 characters")
+    .required(),
+  avatar: yup.string("The avatar must be a valid url").notRequired(),
 });
 
 export const RegisterForm = () => {
@@ -28,9 +37,13 @@ export const RegisterForm = () => {
     reset();
   }, [isSubmitSuccessful, reset]);
 
-  const onSubmit = (data) => {
-    console.log(data);
-    registerUser(data);
+  const onSubmit = async (data) => {
+    try {
+      await registerUser(data);
+      alert("Your user was registered successfully");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -39,70 +52,51 @@ export const RegisterForm = () => {
       onSubmit={handleSubmit(onSubmit)}
       className="w-[80%] lg:w-[50%] mx-auto"
     >
-      <label htmlFor="name">Username</label>
-      <div className=" block group relative text-earth-brown mb-2.5">
-        <i className={iconClass("fa-user")}></i>
+      <Input
+        type="text"
+        name="name"
+        register={register}
+        placeholder="Your name"
+        error={errors.name?.message}
+        icon="fa-user"
+        label="Username"
+      />
+      <Input
+        type="text"
+        name="email"
+        register={register}
+        placeholder="Your email"
+        error={errors.email?.message}
+        icon="fa-at"
+        label="Email"
+      />
 
-        <input
-          type="text"
-          name="name"
-          {...register("name")}
-          className={inputClass}
-          placeholder="Your name"
-        />
-        <p className="text-error-dark text-sm mt-1">{errors.name?.message}</p>
-      </div>
-      <label htmlFor="email">Email</label>
-      <div className=" block  relative text-earth-brown  mb-2.5">
-        <i className={iconClass("fa-at")}></i>
+      <Input
+        type="password"
+        name="password"
+        register={register}
+        placeholder="Your password"
+        error={errors.password?.message}
+        icon="fa-key"
+        label="Password"
+      />
 
-        <input
-          type="text"
-          name="email"
-          {...register("email")}
-          className={inputClass}
-        />
-        <p className="text-error-dark text-sm mt-1">{errors.email?.message}</p>
-      </div>
-      <label htmlFor="password">Password</label>
-      <div className="block  relative text-earth-brown  mb-2.5">
-        <i className={iconClass("fa-key")}></i>
+      <Input
+        type="text"
+        name="avatar"
+        register={register}
+        placeholder="Avatar url"
+        error={errors.avatar?.message}
+        icon="fa-image"
+        label="Avatar (optional)"
+      />
 
-        <input
-          type="password"
-          name="password"
-          {...register("password")}
-          className={inputClass}
-        />
-        <p className="text-error-dark text-sm mt-1">
-          {errors.password?.message}
-        </p>
-      </div>
-      <label htmlFor="avatar">Avatar</label>
-      <div className=" block  relative text-earth-brown  mb-2.5">
-        <i className={iconClass("fa-img")}></i>
+      <InputCheckbox
+        name="venueManager"
+        register={register}
+        label="I am a manager and would like to add venues for rent"
+      />
 
-        <input
-          type="text"
-          name="avatar"
-          {...register("avatar")}
-          className={inputClass}
-        />
-        <p className="text-error-dark text-sm mt-1">{errors.avatar?.message}</p>
-      </div>
-
-      <div className="flex gap-2 mb-2.5">
-        <input
-          id="venueManager"
-          type="checkbox"
-          className={checkboxClass}
-          name="venueManager"
-          {...register("venueManager")}
-        />
-        <label htmlFor="venueManager">
-          I am a manager and would like to add venues for rent
-        </label>
-      </div>
       <div className=" ">
         <BtnPrimary btnText="Register" type="submit" />
       </div>
