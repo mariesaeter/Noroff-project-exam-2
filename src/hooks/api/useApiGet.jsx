@@ -30,5 +30,6 @@ export const useApiGet = (url) => {
 
     getVenues(url);
   }, [url]);
+
   return { venue, venues, isLoading, isError };
 };
