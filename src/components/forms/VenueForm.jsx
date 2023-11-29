@@ -50,6 +50,7 @@ export const VenueForm = ({ schema, btnText, useOnSubmit, values, id }) => {
               placeholder="$ price"
               register={register}
               error={errors.price?.message}
+              step={".01"}
             />
             <Input
               type="number"
@@ -71,6 +72,9 @@ export const VenueForm = ({ schema, btnText, useOnSubmit, values, id }) => {
               {...register("description")}
               rows="5"
             ></textarea>
+            <p className="text-error-dark text-sm mt-1">
+              {errors.description?.message}
+            </p>
           </div>
           <h2>Facilities</h2>
           <p>Select facilities that your venue offer.</p>
@@ -141,10 +145,10 @@ export const VenueForm = ({ schema, btnText, useOnSubmit, values, id }) => {
                 {...register("location.zip")}
               />
               <label htmlFor="location.zip">Movie</label>
-              <p className="text-error-dark text-sm mt-1">
-                {errors.zip?.message}
-              </p>
             </div>
+            <p className="text-error-dark text-sm mt-1">
+              {errors.zip?.message}
+            </p>
           </div>
           <Input
             type="string"
@@ -157,7 +161,7 @@ export const VenueForm = ({ schema, btnText, useOnSubmit, values, id }) => {
           <Input
             type="string"
             name="location.city"
-            label="City"
+            label="City (optional)"
             placeholder="City of venue"
             register={register}
             error={errors.city?.message}
@@ -165,7 +169,7 @@ export const VenueForm = ({ schema, btnText, useOnSubmit, values, id }) => {
           <Input
             type="string"
             name="location.country"
-            label="Country"
+            label="Country (optional)"
             placeholder="Country of venue"
             register={register}
             error={errors.country?.message}
@@ -174,20 +178,22 @@ export const VenueForm = ({ schema, btnText, useOnSubmit, values, id }) => {
             <Input
               type="number"
               name="location.lat"
-              label="Latitude"
+              label="Latitude (optional)"
               placeholder="-90 - 90"
               register={register}
               error={errors.lat?.message}
+              step={".0001"}
             />
             <Input
               type="number"
               name="location.lng"
-              label="Longitude"
+              label="Longitude (optional)"
               placeholder="-180 - 180"
               register={register}
               error={errors.lng?.message}
+              step={".0001"}
             />
-          </div>{" "}
+          </div>
           <div className="block  relative text-earth-brown  mb-2.5 mt-5">
             <BtnPrimary btnText={btnText} type="submit" />
           </div>

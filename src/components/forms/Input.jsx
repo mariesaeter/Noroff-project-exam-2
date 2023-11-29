@@ -28,6 +28,7 @@ export const Input = ({
   error,
   register,
   value,
+  step,
 }) => {
   return (
     <div>
@@ -40,6 +41,7 @@ export const Input = ({
           className={inputClass}
           placeholder={placeholder}
           value={value}
+          step={step}
         />
         <p className="text-error-dark text-sm mt-1">{error}</p>
       </div>
