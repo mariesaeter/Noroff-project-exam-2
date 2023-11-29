@@ -9,6 +9,7 @@ export const useOnSubmitCreateVenue = async (data) => {
     data.media = data.media.split(" ");
 
     await apiPost(data, URL_VENUE);
+    alert(`Your venue ${data.name} was created successfully!`);
   } catch (error) {
     console.log(error);
   }
