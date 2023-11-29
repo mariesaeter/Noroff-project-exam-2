@@ -8,8 +8,14 @@ import { loginUser } from "../../authentication/loginUser";
 import { useNavigate } from "react-router-dom";
 
 const LoginSchema = yup.object({
-  email: yup.string().email().required(),
-  password: yup.string().min(8).required(),
+  email: yup
+    .string()
+    .email()
+    .required("Email must end with 'stud.noroff.no' or 'noroff.no'"),
+  password: yup
+    .string()
+    .min(8, "The password must be at least 8 characters")
+    .required(),
 });
 
 export const LoginForm = () => {
@@ -34,7 +40,14 @@ export const LoginForm = () => {
 
       login;
       if (login === true) {
-        navigate(-1);
+        setTimeout(() => {
+          navigate("../");
+          location.reload();
+        }, 200);
+      }
+
+      if (!login) {
+        alert("User or password is incorrect");
       }
       console.log(loginUser(data));
     } catch (error) {
