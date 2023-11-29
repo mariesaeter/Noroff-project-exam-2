@@ -11,6 +11,8 @@ const CreateVenueSchema = yup.object({
   description: yup.string().required(),
   meta: yup.object(),
   location: yup.object({
+    zip: yup.string().required(),
+    address: yup.string(),
     lng: yup.number(),
     lat: yup.number(),
   }),
@@ -21,7 +23,7 @@ export const CreateVenue = () => {
   return (
     <>
       <NavBgGradient />
-      <div className="mx-5 my-5 md:my-10 md:mx-16 ">
+      <div className="mx-5 my-5 md:my-10 md:mx-16">
         <h1 className="mb-5">Create venue page</h1>
         <VenueForm
           schema={CreateVenueSchema}

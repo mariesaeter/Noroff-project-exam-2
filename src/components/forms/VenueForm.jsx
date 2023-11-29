@@ -21,7 +21,7 @@ export const VenueForm = ({ schema, btnText, useOnSubmit, values, id }) => {
     <div>
       <form
         id={id}
-        className="w-[80%] lg:w-[50%] mx-auto"
+        className="w-[80%]  mx-auto xl:grid xl:grid-cols-2 xl:gap-11"
         onSubmit={handleSubmit(useOnSubmit)}
       >
         <div>
@@ -62,7 +62,7 @@ export const VenueForm = ({ schema, btnText, useOnSubmit, values, id }) => {
           </div>
 
           <label htmlFor="description">Description</label>
-          <div className=" block  relative text-earth-brown  mb-2.5">
+          <div className=" block  relative text-earth-brown  mb-5">
             <textarea
               className={textareaClass}
               type="string"
@@ -119,7 +119,7 @@ export const VenueForm = ({ schema, btnText, useOnSubmit, values, id }) => {
         <div>
           <h2>Location</h2>
           <p>Is your place inspired by a book or a movie?</p>
-          <div className="lg:flex lg:justify-between">
+          <div className="mb-5">
             <div className="flex gap-2 mb-2.5">
               <input
                 type="radio"
@@ -141,8 +141,19 @@ export const VenueForm = ({ schema, btnText, useOnSubmit, values, id }) => {
                 {...register("location.zip")}
               />
               <label htmlFor="location.zip">Movie</label>
+              <p className="text-error-dark text-sm mt-1">
+                {errors.zip?.message}
+              </p>
             </div>
           </div>
+          <Input
+            type="string"
+            name="location.address"
+            label="Which book or movie is your venue in?"
+            placeholder="Book or movie"
+            register={register}
+            error={errors.address?.message}
+          />
           <Input
             type="string"
             name="location.city"
@@ -176,11 +187,10 @@ export const VenueForm = ({ schema, btnText, useOnSubmit, values, id }) => {
               register={register}
               error={errors.lng?.message}
             />
+          </div>{" "}
+          <div className="block  relative text-earth-brown  mb-2.5 mt-5">
+            <BtnPrimary btnText={btnText} type="submit" />
           </div>
-        </div>
-        <div></div>
-        <div className="block  relative text-earth-brown  mb-2.5">
-          <BtnPrimary btnText={btnText} type="submit" />
         </div>
       </form>
     </div>
