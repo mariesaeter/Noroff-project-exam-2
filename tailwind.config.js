@@ -21,6 +21,10 @@ export default {
         DEFAULT: "#CB904D",
         dark: "#8E5F29",
       },
+      body: {
+        white: "#F8F3F1",
+        black: "#171412",
+      },
       error: {
         light: "#E24536",
         dark: "#B32619",
@@ -39,7 +43,7 @@ export default {
   plugins: [
     plugin(function ({ addBase }) {
       addBase({
-        html: { fontSize: "18px" },
+        html: { fontSize: "18px", letterSpacing: "0.025em" },
       });
     }),
   ],

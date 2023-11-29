@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 @layer base {
   h1 {
     @apply text-5xl font-normal font-serif font-normal;
@@ -18,4 +26,17 @@
   h5 {
     @apply text-xl font-serif font-bold;
   }
+  p {
+    @apply mb-2;
+  }
+  body {
+    @apply bg-body-white;
+  }
+  label {
+    @apply text-fantasy-blue;
+  }
+}
+
+nav .active {
+  @apply border-earth-brown-dark border-b-2 lg:text-fantasy-blue-active;
 }
