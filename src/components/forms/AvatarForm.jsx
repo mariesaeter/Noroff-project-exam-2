@@ -30,7 +30,7 @@ export const AvatarForm = (oldAvatar) => {
   const useOnSubmit = async (data) => {
     try {
       console.log(data);
-      await apiPut(data, `${url}/media`);
+      await apiPut(data, `${url}/media`, "Avatar was successfully updated!");
     } catch (error) {
       console.log(error);
     }

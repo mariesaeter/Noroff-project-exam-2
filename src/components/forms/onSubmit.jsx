@@ -28,7 +28,11 @@ export const useOnSubmitUpdateVenue = async (data) => {
       data.media = data.media.split(" ");
     }
 
-    await apiPut(data, `${URL_VENUE}/${data.id}`);
+    await apiPut(
+      data,
+      `${URL_VENUE}/${data.id}`,
+      `Your venue ${data.name} was updated successfully!`
+    );
   } catch (error) {
     console.log(error);
   }
