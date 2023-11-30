@@ -38,7 +38,7 @@ export const useOnSubmitBookVenue = async (data) => {
   try {
     console.log(data);
 
-    await apiPost(data, URL_BOOKINGS);
+    await apiPost(data, URL_BOOKINGS, "Your booking was created successfully!");
   } catch (error) {
     console.log(error);
   }

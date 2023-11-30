@@ -6,15 +6,20 @@ import { BookingForm } from "../forms/BookingForm";
 import * as yup from "yup";
 import { useOnSubmitBookVenue } from "../forms/onSubmit";
 
-const BookingSchema = yup.object({
-  dateFrom: yup.string().required(),
-  dateTo: yup.string().required(),
-  guests: yup
-    .number()
-    .typeError("You must specify a number")
-    .min(1, "There must be at least 1 guest when booking a stay")
-    .required(),
-});
+const BookingSchema = ({ max }) =>
+  yup.object({
+    dateFrom: yup.string().required(),
+    dateTo: yup.string().required(),
+    guests: yup
+      .number()
+      .typeError("You must specify a number")
+      .min(1, "There must be at least 1 guest when booking a stay")
+      .max(
+        max,
+        `The number of guests needs to be below the max number of ${max} guests`
+      )
+      .required(),
+  });
 
 export const IndividualVenue = () => {
   let params = useParams();
@@ -59,8 +64,9 @@ export const IndividualVenue = () => {
           <VenueLocation location={location} />
         </div>
         <BookingForm
-          schema={BookingSchema}
+          schema={BookingSchema({ max: maxGuests })}
           useOnSubmit={useOnSubmitBookVenue}
+          maxGuests={maxGuests}
         />
       </div>
     </>
