@@ -3,10 +3,16 @@ import { RegisterForm } from "../components/forms/RegisterForm";
 import { BtnSecondary } from "../components/styled-components/Buttons";
 import { BrowseVenues } from "../components/venues/BrowseVenues";
 import { NavBgSolid } from "../components/styled-components/Navbg";
+import { PageHelmet } from "../components/PageHelmet";
 
 export const Register = () => {
   return (
     <>
+      <PageHelmet
+        title="Holidaze - Register"
+        content="Holidaze register page"
+      />
+
       <NavBgSolid />
       <div className="bg-[url('/assets/nav-bg.svg')] bg-cover py-4 h-20">
         <h1 className="text-center text-fantasy-blue"> Register page</h1>

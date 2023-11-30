@@ -4,6 +4,7 @@ import { URL_PROFILE } from "../../constants/url";
 import { useApiAuth } from "../../hooks/api/useGetProfile";
 import { CustomerBooking } from "../../components/bookings/CustomerBooking";
 import { LinkPrimary } from "../../components/styled-components/Buttons";
+import { PageHelmet } from "../../components/PageHelmet";
 
 export const MyBookings = () => {
   let params = useParams();
@@ -32,6 +33,11 @@ export const MyBookings = () => {
   }
   return (
     <>
+      <PageHelmet
+        title="Holidaze - My Bookings"
+        content="Holidaze My Bookings page"
+      />
+
       <NavBgGradient />
       <div className="mx-5 my-5 md:my-10 md:mx-16 ">
         <h1 className="mb-5">My bookings</h1>

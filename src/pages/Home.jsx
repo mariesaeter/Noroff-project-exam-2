@@ -3,10 +3,12 @@ import { Venues } from "../components/venues/Venues";
 import { Hero } from "../components/hero";
 import { BtnCta } from "../components/styled-components/Buttons";
 import { NavBgSolid } from "../components/styled-components/Navbg";
+import { PageHelmet } from "../components/PageHelmet";
 
 export const Home = () => {
   return (
     <>
+      <PageHelmet title="Holidaze - Home" content="Holidaze home page" />
       <NavBgSolid />
       <Hero />
       <div className="mx-5 lg:mx-32">

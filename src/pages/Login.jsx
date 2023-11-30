@@ -4,12 +4,15 @@ import { BrowseVenues } from "../components/venues/BrowseVenues";
 import { LoginForm } from "../components/forms/LoginForm";
 import { BtnSecondary } from "../components/styled-components/Buttons";
 import { NavBgSolid } from "../components/styled-components/Navbg";
+import { PageHelmet } from "../components/PageHelmet";
 
 export const Login = () => {
   // const [token, setToken] = useState();
 
   return (
     <>
+      <PageHelmet title="Holidaze - Login" content="Holidaze login page" />
+
       <NavBgSolid />
       <div className="bg-[url('/assets/nav-bg.svg')] bg-cover py-4 h-20 ">
         <h1 className="text-center text-fantasy-blue"> Login page</h1>
