@@ -7,9 +7,13 @@ import * as yup from "yup";
 import { useOnSubmitBookVenue } from "../forms/onSubmit";
 
 const BookingSchema = yup.object({
-  dateFrom: yup.string().notRequired(),
-  dateTo: yup.string().notRequired(),
-  guests: yup.number().notRequired(),
+  dateFrom: yup.string().required(),
+  dateTo: yup.string().required(),
+  guests: yup
+    .number()
+    .typeError("You must specify a number")
+    .min(1, "There must be at least 1 guest when booking a stay")
+    .required(),
 });
 
 export const IndividualVenue = () => {

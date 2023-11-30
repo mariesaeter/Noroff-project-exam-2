@@ -9,7 +9,7 @@ import { URL_PROFILE } from "../../constants/url";
 import { useParams } from "react-router-dom";
 
 const AvatarSchema = yup.object({
-  avatar: yup.string("The avatar must be a valid url").url().notRequired(),
+  avatar: yup.string().url("The avatar must be a valid url").notRequired(),
 });
 
 export const AvatarForm = (oldAvatar) => {
