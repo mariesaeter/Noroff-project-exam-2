@@ -35,6 +35,10 @@ body {
   label {
     @apply text-fantasy-blue;
   }
+  input,
+  textarea {
+    @apply placeholder-earth-brown;
+  }
 }
 
 nav .active {
