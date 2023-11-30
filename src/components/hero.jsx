@@ -5,9 +5,9 @@ import { BtnPrimary } from "./styled-components/Buttons";
 export const Hero = () => {
   return (
     <>
-      <div className="flex flex-col items-center  py-8  bg-[url('../assets/hero-bg2.svg')] bg-cover min-h-[30rem] ">
+      <div className="flex flex-col items-center  py-8  bg-[url('/assets/hero-bg2.svg')] bg-cover min-h-[30rem] ">
         <img
-          src="/src/assets/holidaze-logo-big.png"
+          src="/assets/holidaze-logo-big.png"
           alt="Holidaze logo"
           className="w-1/4"
         />
