@@ -1,6 +1,6 @@
 import { VenueForm } from "../../components/forms/VenueForm";
 import { useOnSubmitCreateVenue } from "../../components/forms/onSubmit";
-import { VenueSchema } from "../../components/forms/schemas";
+import { VenueSchema } from "../../components/forms/venueSchema";
 import { NavBgGradient } from "../../components/styled-components/Navbg";
 
 export const CreateVenue = () => {

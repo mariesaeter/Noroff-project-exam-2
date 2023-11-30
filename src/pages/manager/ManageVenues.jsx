@@ -10,7 +10,7 @@ import { useOnSubmitUpdateVenue } from "../../components/forms/onSubmit";
 import { apiDelete } from "../../hooks/api/useApiDelete";
 import { ToggleButton } from "../../components/ToggleButton";
 import { ManagerBookings } from "../../components/bookings/ManagerBookings";
-import { VenueSchema } from "../../components/forms/schemas";
+import { VenueSchema } from "../../components/forms/venueSchema";
 
 export const ManageVenues = () => {
   let params = useParams();
@@ -76,7 +76,12 @@ export const ManageVenues = () => {
               </div>
               <button
                 className="fa-solid fa-trash-can text-earth-brown"
-                onClick={() => apiDelete(`${URL_VENUE}/${venue.id}`)}
+                onClick={() =>
+                  apiDelete(
+                    `${URL_VENUE}/${venue.id}`,
+                    "Your venue was deleted successfully."
+                  )
+                }
               ></button>
             </li>
           ))}
