@@ -5,6 +5,7 @@ import { VenueBody, VenueFacilities, VenueHead, VenueLocation } from "./index";
 import { BookingForm } from "../forms/BookingForm";
 import * as yup from "yup";
 import { useOnSubmitBookVenue } from "../forms/onSubmit";
+import { PageHelmet } from "../PageHelmet";
 
 const BookingSchema = ({ max }) =>
   yup.object({
@@ -43,6 +44,11 @@ export const IndividualVenue = () => {
   console.log(id);
   return (
     <>
+      <PageHelmet
+        title={`Holidaze - ${name}`}
+        content={`Holidaze venue page for ${name}`}
+      />
+
       <h1>{name}</h1>
       <small className="text-fantasy-blue">
         {city}, {country}

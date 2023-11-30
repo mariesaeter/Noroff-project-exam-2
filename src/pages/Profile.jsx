@@ -10,6 +10,7 @@ import {
 } from "../components/styled-components/Buttons";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { PageHelmet } from "../components/PageHelmet";
 
 // // import { AuthContext } from "../context/AuthContext";
 // import { loadLocal } from "../utils/localStorage";
@@ -52,6 +53,11 @@ export const Profile = () => {
 
   return (
     <>
+      <PageHelmet
+        title={`Holidaze - ${params.name}`}
+        content="Your profile page at Holidaze"
+      />
+
       <NavBgGradient />
       <div className="mx-5 my-5 md:my-10 md:mx-16 ">
         <h1 className="mb-5 text-center">My profile</h1>
