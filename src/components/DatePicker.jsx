@@ -72,6 +72,7 @@ export const DateRange = ({ control, setValue }) => {
             className={inputClass}
             icon={<CalendarIcon />}
             showIcon={true}
+            ariaLabelledBy="check-in-date"
             placeholderText="Date from"
           />
         )}
@@ -104,6 +105,7 @@ export const DateRange = ({ control, setValue }) => {
             className={inputClass}
             icon={<CalendarIcon />}
             showIcon={true}
+            ariaLabelledBy="check-out-date"
             placeholderText="date to"
           />
         )}

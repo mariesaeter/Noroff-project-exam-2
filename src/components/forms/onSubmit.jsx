@@ -28,7 +28,11 @@ export const useOnSubmitUpdateVenue = async (data) => {
       data.media = data.media.split(" ");
     }
 
-    await apiPut(data, `${URL_VENUE}/${data.id}`);
+    await apiPut(
+      data,
+      `${URL_VENUE}/${data.id}`,
+      `Your venue ${data.name} was updated successfully!`
+    );
   } catch (error) {
     console.log(error);
   }
@@ -38,7 +42,7 @@ export const useOnSubmitBookVenue = async (data) => {
   try {
     console.log(data);
 
-    await apiPost(data, URL_BOOKINGS);
+    await apiPost(data, URL_BOOKINGS, "Your booking was created successfully!");
   } catch (error) {
     console.log(error);
   }

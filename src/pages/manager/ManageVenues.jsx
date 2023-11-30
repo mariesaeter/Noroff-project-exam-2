@@ -6,28 +6,11 @@ import { linkClass } from "../../constants/classes";
 import { LinkPrimary } from "../../components/styled-components/Buttons";
 import { Modal } from "../../components/Modal";
 import { VenueForm } from "../../components/forms/VenueForm";
-import * as yup from "yup";
 import { useOnSubmitUpdateVenue } from "../../components/forms/onSubmit";
 import { apiDelete } from "../../hooks/api/useApiDelete";
 import { ToggleButton } from "../../components/ToggleButton";
 import { ManagerBookings } from "../../components/bookings/ManagerBookings";
-
-export const UpdateVenueSchema = yup.object({
-  name: yup.string().notRequired(),
-  maxGuests: yup.number().notRequired(),
-  price: yup.number().notRequired(),
-  media: yup.mixed().notRequired(),
-  description: yup.string().notRequired(),
-  meta: yup.object().notRequired(),
-  location: yup
-    .object({
-      lng: yup.number(),
-      lat: yup.number(),
-    })
-    .notRequired(),
-  city: yup.string().notRequired(),
-  country: yup.string().notRequired(),
-});
+import { VenueSchema } from "../../components/forms/venueSchema";
 
 export const ManageVenues = () => {
   let params = useParams();
@@ -79,7 +62,7 @@ export const ManageVenues = () => {
                     <Modal modalLinkText="Edit venue">
                       <div className="mx-auto bg-body-white w-full p-2 rounded-lg">
                         <VenueForm
-                          schema={UpdateVenueSchema}
+                          schema={VenueSchema}
                           btnText="Update venue"
                           id={venue.id}
                           values={venue}
@@ -93,7 +76,12 @@ export const ManageVenues = () => {
               </div>
               <button
                 className="fa-solid fa-trash-can text-earth-brown"
-                onClick={() => apiDelete(`${URL_VENUE}/${venue.id}`)}
+                onClick={() =>
+                  apiDelete(
+                    `${URL_VENUE}/${venue.id}`,
+                    "Your venue was deleted successfully."
+                  )
+                }
               ></button>
             </li>
           ))}

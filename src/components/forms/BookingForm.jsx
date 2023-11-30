@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { Input } from "./Input";
 import { useParams } from "react-router-dom";
 
-export const BookingForm = ({ schema, useOnSubmit }) => {
+export const BookingForm = ({ schema, useOnSubmit, maxGuests }) => {
   const {
     reset,
     control,
@@ -43,7 +43,8 @@ export const BookingForm = ({ schema, useOnSubmit }) => {
           type="number"
           name="guests"
           label="Number of guests"
-          placeholder="0-100"
+          // max={maxGuests}
+          placeholder={`1-${maxGuests}`}
           register={register}
           error={errors.guests?.message}
         />

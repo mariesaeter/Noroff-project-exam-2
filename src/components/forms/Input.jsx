@@ -53,6 +53,7 @@ export const Input = ({
   error,
   register,
   value,
+  max,
   step,
 }) => {
   return (
@@ -66,6 +67,7 @@ export const Input = ({
           className={inputClass}
           placeholder={placeholder}
           value={value}
+          max={max}
           step={step}
         />
         <p className="text-error-dark text-sm mt-1">{error}</p>
