@@ -24,11 +24,10 @@ const BookingSchema = ({ max }) =>
 
 const findExcludedDates = async (bookings) => {
   console.log(bookings);
-  bookings.map((booking) => {
+  const newArr = bookings.map((booking) => {
     const bookingDates = [];
     const dateFrom = new Date(booking.dateFrom);
     const dateTo = new Date(booking.dateTo);
-    console.log(typeof booking.dateTo);
     for (
       let date = dateFrom;
       date <= dateTo;
@@ -36,10 +35,28 @@ const findExcludedDates = async (bookings) => {
     ) {
       bookingDates.push(new Date(date));
     }
-
-    return bookingDates;
-    // console.log(bookingDates);
+    return { ...booking, dateRange: bookingDates };
   });
+
+  console.log(newArr);
+  // let bookingDates = [];
+  // // bookings.filter((booking) => Date.parse(booking.dateFrom));
+  // bookings.filter((booking) => {
+  //   const dateFrom = new Date(booking.dateFrom);
+  //   const dateTo = new Date(booking.dateTo);
+  //   console.log(typeof booking.dateTo);
+  //   for (
+  //     let date = dateFrom;
+  //     date <= dateTo;
+  //     date.setDate(date.getDate() + 1)
+  //   ) {
+  //     bookingDates.push(new Date(date));
+  //   }
+  //   console.log(bookingDates);
+  //   // const arr = [...bookingDates];
+  //   // console.log(arr);
+  //   return bookingDates;
+  // });
   // const obj = obj.push(bookingDates)
 };
 
@@ -98,6 +115,7 @@ export const IndividualVenue = () => {
           schema={BookingSchema({ max: maxGuests })}
           useOnSubmit={useOnSubmitBookVenue}
           maxGuests={maxGuests}
+          excludeDates={findExcludedDates(bookings)}
         />
       </div>
     </>

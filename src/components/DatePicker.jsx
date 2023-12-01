@@ -56,6 +56,7 @@ export const DateRange = ({ control, setValue }) => {
             selected={startDate}
             startDate={startDate}
             endDate={endDate}
+            // excludeDates={excludeDates}
             onChange={(date) => {
               setValue("dateFrom", date);
               setStartDate(date);
@@ -90,6 +91,7 @@ export const DateRange = ({ control, setValue }) => {
             selected={endDate}
             startDate={startDate}
             endDate={endDate}
+            // excludeDates={excludeDates}
             onChange={(date) => {
               setValue("dateTo", date);
               setEndDate(date);

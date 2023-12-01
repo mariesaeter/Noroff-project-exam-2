@@ -6,7 +6,12 @@ import { useEffect } from "react";
 import { Input } from "./Input";
 import { useParams } from "react-router-dom";
 
-export const BookingForm = ({ schema, useOnSubmit, maxGuests }) => {
+export const BookingForm = ({
+  schema,
+  useOnSubmit,
+  maxGuests,
+  excludeDates,
+}) => {
   const {
     reset,
     control,
@@ -31,7 +36,11 @@ export const BookingForm = ({ schema, useOnSubmit, maxGuests }) => {
       >
         <h2 className="block w-[80%] lg:w-full mx-auto">Book your stay</h2>
         <div className=" w-[80%] lg:w-full block mx-auto">
-          <DateRange control={control} setValue={setValue} />
+          <DateRange
+            control={control}
+            setValue={setValue}
+            excludeDates={excludeDates}
+          />
         </div>
         <Input
           type="hidden"
