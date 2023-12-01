@@ -22,13 +22,41 @@ const BookingSchema = ({ max }) =>
       .required(),
   });
 
+const findExcludedDates = async (bookings) => {
+  console.log(bookings);
+  bookings.map((booking) => {
+    const bookingDates = [];
+    const dateFrom = new Date(booking.dateFrom);
+    const dateTo = new Date(booking.dateTo);
+    console.log(typeof booking.dateTo);
+    for (
+      let date = dateFrom;
+      date <= dateTo;
+      date.setDate(date.getDate() + 1)
+    ) {
+      bookingDates.push(new Date(date));
+    }
+
+    return bookingDates;
+    // console.log(bookingDates);
+  });
+  // const obj = obj.push(bookingDates)
+};
+
 export const IndividualVenue = () => {
   let params = useParams();
+  // const [isDateExcluded, setIsDateExcluded] = useState([]);
 
   const { venue, venues, isLoading, isError } = useApiGet(
-    `${URL_VENUE}/${params.id}`
+    `${URL_VENUE}/${params.id}?_bookings=true`
   );
-
+  console.log(venues);
+  const { name, price, id, description, maxGuests, bookings } = venues;
+  const { location, media, meta } = venue;
+  const { city, country } = location;
+  console.log(bookings);
+  // const { isDatesExcluded } = useExcludeDates(venues.bookings);
+  // console.log(isDatesExcluded);
   if (isLoading) {
     return <div>Is loading</div>;
   }
@@ -36,12 +64,9 @@ export const IndividualVenue = () => {
     return <div>There was an error</div>;
   }
 
-  const { name, price, id, description, maxGuests } = venues;
-  const { location, media, meta } = venue;
-  const { city, country } = location;
+  console.log(findExcludedDates(bookings));
   // const { wifi, parking, breakfast, pets } = meta;
 
-  console.log(id);
   return (
     <>
       <PageHelmet
