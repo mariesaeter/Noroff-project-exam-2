@@ -86,7 +86,9 @@ export const ManageVenues = () => {
             </li>
           ))}
         </ul>
-        <LinkPrimary text="Add new venue" location="create-venue" />
+        <div className="grid justify-center">
+          <LinkPrimary text="Add new venue" location="create-venue" />
+        </div>
       </div>
     </>
   );

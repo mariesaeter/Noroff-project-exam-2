@@ -20,7 +20,7 @@ const ProfileButtons = () => {
 
   if (isManager) {
     return (
-      <div>
+      <div className="grid text-center">
         <LinkPrimary text="Manage venues" location="manage-venues" />
         <LinkSecondary text="Add new venue" location="create-venue" />
       </div>
@@ -28,7 +28,7 @@ const ProfileButtons = () => {
   }
   if (!isManager) {
     return (
-      <div className="grid ">
+      <div className="grid text-center">
         <LinkPrimary text="View my bookings" location="my-bookings" />
         <LinkSecondary text="Browse venues" location="../browse-venues" />
       </div>
@@ -61,7 +61,7 @@ export const Profile = () => {
       <NavBgGradient />
       <div className="mx-5 my-5 md:my-10 md:mx-16 ">
         <h1 className="mb-5 text-center">My profile</h1>
-        <div className="grid justify-center justify-items-center md:grid-cols-2">
+        <div className="flex flex-col justify-center items-center lg:flex-row lg:items-start lg:gap-5">
           <div className="text-center">
             <img
               className="w-48 h-48 lg:w-72 lg:h-72 background-cover rounded-xl mb-4"
