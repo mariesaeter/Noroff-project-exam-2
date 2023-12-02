@@ -76,7 +76,7 @@ export const VenueForm = ({ schema, btnText, useOnSubmit, values, id }) => {
               {errors.description?.message}
             </p>
           </div>
-          <h2>Facilities</h2>
+          <h3>Facilities</h3>
           <p>Select facilities that your venue offer.</p>
           <div className="lg:flex lg:justify-between">
             <InputCheckbox name="meta.wifi" register={register} label="Wifi" />
@@ -121,7 +121,7 @@ export const VenueForm = ({ schema, btnText, useOnSubmit, values, id }) => {
             </p>
           </div> */}
         <div>
-          <h2>Location</h2>
+          <h3>Location</h3>
           <p>Is your place inspired by a book or a movie?</p>
           <div className="mb-5">
             <div className="flex gap-2 mb-2.5">

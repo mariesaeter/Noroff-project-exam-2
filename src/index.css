@@ -4,6 +4,7 @@
 
 body {
   min-height: 100vh;
+  position: relative;
 }
 
 * {
@@ -31,6 +32,7 @@ body {
   }
   body {
     @apply bg-body-white;
+    @apply pb-40;
   }
   label {
     @apply text-fantasy-blue;
