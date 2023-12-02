@@ -22,43 +22,43 @@ const BookingSchema = ({ max }) =>
       .required(),
   });
 
-const findExcludedDates = async (bookings) => {
-  console.log(bookings);
-  const newArr = bookings.map((booking) => {
-    const bookingDates = [];
-    const dateFrom = new Date(booking.dateFrom);
-    const dateTo = new Date(booking.dateTo);
-    for (
-      let date = dateFrom;
-      date <= dateTo;
-      date.setDate(date.getDate() + 1)
-    ) {
-      bookingDates.push(new Date(date));
-    }
-    return { ...booking, dateRange: bookingDates };
-  });
+// const findExcludedDates = async (bookings) => {
+//   console.log(bookings);
+//   const newArr = bookings.map((booking) => {
+//     const bookingDates = [];
+//     const dateFrom = new Date(booking.dateFrom);
+//     const dateTo = new Date(booking.dateTo);
+//     for (
+//       let date = dateFrom;
+//       date <= dateTo;
+//       date.setDate(date.getDate() + 1)
+//     ) {
+//       bookingDates.push(new Date(date));
+//     }
+//     return { ...booking, dateRange: bookingDates };
+//   });
 
-  console.log(newArr);
-  // let bookingDates = [];
-  // // bookings.filter((booking) => Date.parse(booking.dateFrom));
-  // bookings.filter((booking) => {
-  //   const dateFrom = new Date(booking.dateFrom);
-  //   const dateTo = new Date(booking.dateTo);
-  //   console.log(typeof booking.dateTo);
-  //   for (
-  //     let date = dateFrom;
-  //     date <= dateTo;
-  //     date.setDate(date.getDate() + 1)
-  //   ) {
-  //     bookingDates.push(new Date(date));
-  //   }
-  //   console.log(bookingDates);
-  //   // const arr = [...bookingDates];
-  //   // console.log(arr);
-  //   return bookingDates;
-  // });
-  // const obj = obj.push(bookingDates)
-};
+//   console.log(newArr);
+//   // let bookingDates = [];
+//   // // bookings.filter((booking) => Date.parse(booking.dateFrom));
+//   // bookings.filter((booking) => {
+//   //   const dateFrom = new Date(booking.dateFrom);
+//   //   const dateTo = new Date(booking.dateTo);
+//   //   console.log(typeof booking.dateTo);
+//   //   for (
+//   //     let date = dateFrom;
+//   //     date <= dateTo;
+//   //     date.setDate(date.getDate() + 1)
+//   //   ) {
+//   //     bookingDates.push(new Date(date));
+//   //   }
+//   //   console.log(bookingDates);
+//   //   // const arr = [...bookingDates];
+//   //   // console.log(arr);
+//   //   return bookingDates;
+//   // });
+//   // const obj = obj.push(bookingDates)
+// };
 
 export const IndividualVenue = () => {
   let params = useParams();
@@ -67,9 +67,9 @@ export const IndividualVenue = () => {
   const { venue, venues, isLoading, isError } = useApiGet(
     `${URL_VENUE}/${params.id}?_bookings=true`
   );
-  console.log(venues);
-  const { name, price, id, description, maxGuests, bookings } = venues;
-  const { location, media, meta } = venue;
+  console.log(venue);
+  const { name, price, id, description, maxGuests } = venues;
+  const { location, media, meta, bookings } = venue;
   const { city, country } = location;
   console.log(bookings);
   // const { isDatesExcluded } = useExcludeDates(venues.bookings);
@@ -81,7 +81,7 @@ export const IndividualVenue = () => {
     return <div>There was an error</div>;
   }
 
-  console.log(findExcludedDates(bookings));
+  // console.log(findExcludedDates(bookings));
   // const { wifi, parking, breakfast, pets } = meta;
 
   return (
@@ -115,7 +115,7 @@ export const IndividualVenue = () => {
           schema={BookingSchema({ max: maxGuests })}
           useOnSubmit={useOnSubmitBookVenue}
           maxGuests={maxGuests}
-          excludeDates={findExcludedDates(bookings)}
+          // excludeDates={findExcludedDates(bookings)}
         />
       </div>
     </>
