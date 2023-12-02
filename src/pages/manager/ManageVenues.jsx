@@ -34,7 +34,7 @@ export const ManageVenues = () => {
         <ul className="flex flex-col items-center gap-5 mb-10 ">
           {data.map((venue) => (
             <li
-              className="flex justify-between w-full md:w-3/4 lg:w-7/12 "
+              className="flex justify-between w-full md:w-3/4 lg:w-7/12 relative"
               key={venue.id}
             >
               <div className="flex gap-2 lg:gap-3.5 items-center">
