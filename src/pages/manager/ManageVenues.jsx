@@ -11,7 +11,6 @@ import { apiDelete } from "../../hooks/api/useApiDelete";
 import { ToggleButton } from "../../components/ToggleButton";
 import { ManagerBookings } from "../../components/bookings/ManagerBookings";
 import { VenueSchema } from "../../components/forms/venueSchema";
-import { PageHelmet } from "../../components/PageHelmet";
 
 export const ManageVenues = () => {
   let params = useParams();
@@ -29,15 +28,10 @@ export const ManageVenues = () => {
 
   return (
     <>
-      <PageHelmet
-        title="Holidaze - Manage Venues"
-        content="Holidaze manage venue page"
-      />
-
       <NavBgGradient />
-      <div className="mx-5 my-5 md:my-10 md:mx-16 ">
+      <div className="mx-5 my-5 md:my-10 md:mx-16">
         <h1 className="mb-5">Manage venues</h1>
-        <ul className="flex flex-col items-center gap-5 mb-10 relative">
+        <ul className="flex flex-col items-center gap-5 mb-10 ">
           {data.map((venue) => (
             <li
               className="flex justify-between w-full md:w-3/4 lg:w-7/12 "
@@ -65,7 +59,7 @@ export const ManageVenues = () => {
                       <ManagerBookings bookings={venue.bookings} />
                     </ToggleButton>
 
-                    <Modal modalLinkText="Edit venue">
+                    <Modal modalLinkText="Edit venue" title="Edit venue">
                       <div className="mx-auto bg-body-white w-full p-2 rounded-lg">
                         <VenueForm
                           schema={VenueSchema}
