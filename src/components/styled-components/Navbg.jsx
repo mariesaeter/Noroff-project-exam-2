@@ -1,11 +1,11 @@
 export const NavBgGradient = () => {
   return (
-    <div className="bg-[url('/assets/nav-bg.svg')] bg-cover py-4 h-20 absolute top-0 left-0 w-full z-0"></div>
+    <div className=" fixed top-0 bg-[url('/assets/nav-bg.svg')] bg-cover py-4 h-20 z-20 w-full "></div>
   );
 };
 
 export const NavBgSolid = () => {
   return (
-    <div className="bg-sky-blue-dark h-14 absolute top-0 left-0 w-full z-0"></div>
+    <div className=" fixed top-0 bg-sky-blue-dark h-14  w-full z-20"></div>
   );
 };

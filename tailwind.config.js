@@ -41,6 +41,7 @@ export default {
     extend: {
       margin: {
         5.5: "1.389rem",
+        6.5: "1.667rem",
       },
     },
   },

@@ -11,6 +11,7 @@ import {
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { PageHelmet } from "../components/PageHelmet";
+import { PageWrapper } from "../components/PageWrapper";
 
 // // import { AuthContext } from "../context/AuthContext";
 // import { loadLocal } from "../utils/localStorage";
@@ -59,7 +60,7 @@ export const Profile = () => {
       />
 
       <NavBgGradient />
-      <div className="mx-5 my-5 md:my-10 md:mx-16 ">
+      <PageWrapper>
         <h1 className="mb-5 text-center">My profile</h1>
         <div className="flex flex-col justify-center items-center lg:flex-row lg:items-start lg:gap-5">
           <div className="text-center">
@@ -85,7 +86,7 @@ export const Profile = () => {
             <ProfileButtons />
           </div>
         </div>
-      </div>
+      </PageWrapper>
     </>
   );
 };

@@ -11,6 +11,7 @@ import { apiDelete } from "../../hooks/api/useApiDelete";
 import { ToggleButton } from "../../components/ToggleButton";
 import { ManagerBookings } from "../../components/bookings/ManagerBookings";
 import { VenueSchema } from "../../components/forms/venueSchema";
+import { PageWrapper } from "../../components/PageWrapper";
 
 export const ManageVenues = () => {
   let params = useParams();
@@ -29,7 +30,7 @@ export const ManageVenues = () => {
   return (
     <>
       <NavBgGradient />
-      <div className="mx-5 my-5 md:my-10 md:mx-16">
+      <PageWrapper>
         <h1 className="mb-5">Manage venues</h1>
         <ul className="flex flex-col items-center gap-5 mb-10 ">
           {data.map((venue) => (
@@ -89,7 +90,7 @@ export const ManageVenues = () => {
         <div className="grid justify-center">
           <LinkPrimary text="Add new venue" location="create-venue" />
         </div>
-      </div>
+      </PageWrapper>
     </>
   );
 };

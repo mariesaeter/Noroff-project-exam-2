@@ -1,4 +1,5 @@
 import { PageHelmet } from "../components/PageHelmet";
+import { PageWrapper } from "../components/PageWrapper";
 import { NavBgGradient } from "../components/styled-components/Navbg";
 
 export const History = () => {
@@ -7,9 +8,9 @@ export const History = () => {
       <PageHelmet title="Holidaze - History" content="Holidaze history page" />
 
       <NavBgGradient />
-      <div className="mx-5">
+      <PageWrapper>
         <h1>History page</h1>
-      </div>
+      </PageWrapper>
     </>
   );
 };
