@@ -24,7 +24,11 @@ export const ToggleButton = ({
   return (
     <>
       {toggle ? closeButton : openButton}
-      {toggle && <div className="absolute left-0 w-full">{children}</div>}
+      {toggle && (
+        <div className="absolute w-full  bg-body-white z-40 left-0 px-2 py-1.5">
+          {children}
+        </div>
+      )}
     </>
   );
 };
