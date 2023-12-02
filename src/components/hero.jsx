@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import { iconClass, inputClass } from "../constants";
 import { Calendar } from "./DatePicker";
-import { BtnPrimary } from "./styled-components/Buttons";
+import { BtnCta, BtnPrimary } from "./styled-components/Buttons";
 
 export const Hero = () => {
   return (
@@ -36,6 +37,9 @@ export const Hero = () => {
             <BtnPrimary btnText="Search" type="submit" />
           </div>
         </form>
+        <Link to="/browse-venues" className="w-1/2 mt-16">
+          <BtnCta btnText="Browse all  venues" />
+        </Link>
       </div>
     </>
   );

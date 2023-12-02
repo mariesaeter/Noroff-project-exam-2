@@ -38,8 +38,13 @@ export default {
       sans: ["Ledger", "sans-serif"],
       serif: ["Josefin Slab", "serif"],
     },
-    extend: {},
+    extend: {
+      margin: {
+        5.5: "1.389rem",
+      },
+    },
   },
+
   plugins: [
     plugin(function ({ addBase }) {
       addBase({
