@@ -13,10 +13,10 @@ body {
 
 @layer base {
   h1 {
-    @apply text-5xl font-normal font-serif font-normal;
+    @apply text-5xl font-normal font-serif font-normal mb-6.5;
   }
   h2 {
-    @apply text-4xl font-serif font-normal;
+    @apply text-4xl font-serif font-normal mb-5.5;
   }
   h3 {
     @apply text-3xl font-serif font-semibold;

@@ -49,7 +49,7 @@ export const IndividualVenue = () => {
         content={`Holidaze venue page for ${name}`}
       />
 
-      <h1>{name}</h1>
+      <h1 className="mb-2">{name}</h1>
       <small className="text-fantasy-blue">
         {city}, {country}
       </small>

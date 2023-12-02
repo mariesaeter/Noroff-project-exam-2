@@ -14,19 +14,21 @@ export const Login = () => {
       <PageHelmet title="Holidaze - Login" content="Holidaze login page" />
 
       <NavBgSolid />
-      <div className="bg-[url('/assets/nav-bg.svg')] bg-cover py-4 h-20 ">
-        <h1 className="text-center text-fantasy-blue"> Login page</h1>
-      </div>
-
-      <div className="mx-5 mt-5 lg:mt-8">
-        <LoginForm />
-        <div className="w-[80%] lg:w-[50%] mx-auto mt-5  text-center">
-          <p>If you dont have a user</p>
-          <Link to="/register">
-            <BtnSecondary btnText="Register user" />
-          </Link>
+      <div className="pt-12">
+        <div className="bg-[url('/assets/nav-bg.svg')] bg-cover py-4 h-30">
+          <h1 className="text-center text-fantasy-blue"> Login</h1>
         </div>
-        <BrowseVenues />
+
+        <div className="mx-5 my-5 lg:my-8">
+          <LoginForm />
+          <div className="w-[80%] lg:w-[50%] mx-auto mt-5 text-center">
+            <p>If you dont have a user</p>
+            <Link to="/register">
+              <BtnSecondary btnText="Register user" />
+            </Link>
+          </div>
+          <BrowseVenues />
+        </div>
       </div>
     </>
   );
