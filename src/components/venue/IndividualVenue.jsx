@@ -59,6 +59,28 @@ const BookingSchema = ({ max }) =>
 //   // });
 //   // const obj = obj.push(bookingDates)
 // };
+const excludeDates = async (maxGuests, bookings) => {
+  console.log(maxGuests);
+  console.log(bookings);
+
+  let bookingDetails = bookings.map((obj) => {
+    console.log(obj.dateRange);
+    // obj.dateRange.map((date) => {
+    //   const array = [];
+    //   let arrayItem = {
+    //     dates: date,
+    //   };
+    //   array.push(arrayItem);
+    //   return { ...dates, date: array };
+    // });
+    // obj.dateRange.map((date) => {
+    //   return {
+    //     date,
+    //   };
+    // });
+  });
+  console.log(bookingDetails);
+};
 
 export const IndividualVenue = () => {
   let params = useParams();
@@ -71,7 +93,8 @@ export const IndividualVenue = () => {
   const { name, price, id, description, maxGuests } = venues;
   const { location, media, meta, bookings } = venue;
   const { city, country } = location;
-  console.log(bookings);
+
+  excludeDates(maxGuests, bookings);
   // const { isDatesExcluded } = useExcludeDates(venues.bookings);
   // console.log(isDatesExcluded);
   if (isLoading) {

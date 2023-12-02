@@ -39,7 +39,6 @@ export const useApiGet = (url) => {
         const response = await fetchedVenues.json();
         setVenues(response);
 
-        console.log(response.bookings);
         // const bookings = createDateArray(response.bookings);
         // console.log(bookings);
 
