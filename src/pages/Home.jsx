@@ -9,7 +9,7 @@ export const Home = () => {
       <PageHelmet title="Holidaze - Home" content="Holidaze home page" />
       <NavBgSolid />
       <Hero />
-      <div className="mx-5 lg:mx-32">
+      <div className="mx-5 lg:mx-32 mt-5 mb-8">
         <div className="flex justify-center"></div>
         <h2>Popular destinations</h2>
         <Venues />

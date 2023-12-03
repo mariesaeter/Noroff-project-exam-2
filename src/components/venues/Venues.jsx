@@ -86,6 +86,7 @@ export const Venues = () => {
             />
           ))}
         </div>
+
         <Pagination
           venuesPerPage={venuesPerPage}
           totalVenues={data.length}
