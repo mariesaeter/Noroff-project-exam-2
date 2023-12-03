@@ -6,9 +6,7 @@ export const textareaClass =
 
 export const linkClass =
   "text-fantasy-blue hover:text-fantasy-blue-active underline transition duration-300";
-// export const inputContainer = "flex";
 
-// https://codepen.io/artilishes/pen/ZOQWZe
 export const checkboxClass =
   "border-2 border-fantasy-blue cursor-pointer rounded appearance-none relative after:opacity-0 checked:after:opacity-100 after:absolute after:top-[3px] after:left-[3px] after:w-[10px]  after:h-[10px] after:rounded-sm after:block after:bg-earth-brown h-[20px] w-[20px] mt-1 shrink-0 ";
 

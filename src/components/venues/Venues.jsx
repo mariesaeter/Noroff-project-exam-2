@@ -10,23 +10,13 @@ import { Loader } from "../Loader";
 // https://hygraph.com/blog/react-pagination
 
 export const Venues = () => {
-  // const [pageCount, setPageCount] = useState(1);
-  // const [totalPages, setTotalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const venuesPerPage = 10;
-
-  // const itemsPerPage = 10;
-  // const startIndex = currentPage * itemsPerPage;
-  // const endIndex = startIndex + itemsPerPage;
-  // const urls = [URL_VENUES, URL_VENUES2];
 
   const { venues, isLoading, isError } = useApiGet(URL_VENUES);
   const { data } = useApiAuth(URL_VENUES2);
 
   const newArr = venues.concat(data);
-  console.log(newArr);
-
-  console.log(venues);
 
   const filteredVenues = newArr.filter(
     (x) => x.location.zip === "book" || x.location.zip === "movie"
@@ -52,24 +42,6 @@ export const Venues = () => {
     }
   };
 
-  // useEffect(() => {
-  //   setTotalPages(venues.length / itemsPerPage);
-  // }, [venues.length, itemsPerPage]);
-
-  // const subSet = venues.slice(startIndex, endIndex);
-
-  // console.log(subSet);
-  // setTotalPages(venues.length / itemsPerPage);
-
-  // console.log(totalPages);
-
-  // const handlePageChange = (selectedPage) => {
-  //   setCurrentPage(selectedPage.selected);
-  // };
-
-  // setTotalPages(Math.ceil(venues.length / itemsPerPage));
-  // console.log(totalPages);
-
   if (isLoading) {
     return <Loader />;
   }
@@ -82,7 +54,6 @@ export const Venues = () => {
       <div>
         <div className="grid gap-5 md:grid-cols-2 lg:gap-12 xl:grid-cols-3">
           {currentVenues.map((venue) => (
-            // console.log(venue.name);
             <VenueCard
               id={venue.id}
               name={venue.name}

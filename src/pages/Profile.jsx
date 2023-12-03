@@ -14,9 +14,6 @@ import { PageHelmet } from "../components/PageHelmet";
 import { PageWrapper } from "../components/PageWrapper";
 import { Loader } from "../components/Loader";
 
-// // import { AuthContext } from "../context/AuthContext";
-// import { loadLocal } from "../utils/localStorage";
-
 const ProfileButtons = () => {
   const { isManager } = useContext(AuthContext);
 
@@ -42,10 +39,8 @@ export const Profile = () => {
   let params = useParams();
 
   const url = `${URL_PROFILE}/${params.name}`;
-  // const profileUser = loadLocal("profile");
   const { data, isLoading, isError } = useApiAuth(url);
 
-  console.log(data);
   if (isLoading) {
     return <Loader />;
   }

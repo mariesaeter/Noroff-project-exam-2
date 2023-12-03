@@ -49,7 +49,6 @@ export const LoginForm = () => {
       if (!login) {
         alert("User or password is incorrect");
       }
-      console.log(loginUser(data));
     } catch (error) {
       console.log(error);
     }

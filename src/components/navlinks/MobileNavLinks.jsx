@@ -4,7 +4,7 @@ import { NavNotLoggedIn } from "./NavNotLoggedIn";
 import { NavManager } from "./NavManager";
 import { AuthContext } from "../../context/AuthContext";
 
-export function MobileNavLinks() {
+export const MobileNavLinks = () => {
   const { isAuthenticated, isManager } = useContext(AuthContext);
 
   if (isAuthenticated && isManager) {
@@ -36,4 +36,4 @@ export function MobileNavLinks() {
       </div>
     );
   }
-}
+};

@@ -3,16 +3,7 @@ import { LogOutLink, StyledLink } from "../styled-components/NavLink";
 import { handleLogOut } from "../../authentication/logOutUser";
 import { loadLocal } from "../../utils/localStorage";
 
-// const handleLogOut = () => {
-//   console.log("hello");
-//   //   removeLocal("accessToken");
-//   //   removeLocal("profile");
-// };
-
-export function NavManager() {
-  // function handleLogOut() {
-  //   console.log("hello");
-  // }
+export const NavManager = () => {
   const profile = loadLocal("profile");
   return (
     <>
@@ -33,4 +24,4 @@ export function NavManager() {
       </li>
     </>
   );
-}
+};

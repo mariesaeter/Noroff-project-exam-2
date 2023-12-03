@@ -93,33 +93,7 @@ export const VenueForm = ({ schema, btnText, useOnSubmit, values, id }) => {
             <InputCheckbox name="meta.pets" register={register} label="Pets" />
           </div>
         </div>
-        {/* <label htmlFor="people">Number of people</label>
-          <div className=" block  relative text-earth-brown  mb-2.5">
-            <input
-              type="number"
-              name="maxGuests"
-              ref={register("maxGuests")}
-              className={inputClass}
-              placeholder="1-100"
-            />
-            <p className="text-error-dark text-sm mt-1">
-              {errors.maxGuests?.message}
-            </p>
-          </div>
 
-          <label htmlFor="maxGuests">Number of people</label>
-          <div className=" block  relative text-earth-brown  mb-2.5">
-            <input
-              type="number"
-              name="maxGuests"
-              {...register("maxGuests")}
-              className={inputClass}
-              placeholder="1-100"
-            />
-            <p className="text-error-dark text-sm mt-1">
-              {errors.maxGuests?.message}
-            </p>
-          </div> */}
         <div>
           <h3>Location</h3>
           <p>Is your place inspired by a book or a movie?</p>

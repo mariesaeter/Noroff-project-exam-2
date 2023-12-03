@@ -9,7 +9,7 @@ import { URL_PROFILE } from "../../constants/url";
 import { useParams } from "react-router-dom";
 
 const AvatarSchema = yup.object({
-  avatar: yup.string().url("The avatar must be a valid url").notRequired(),
+  avatar: yup.string().url("The avatar must be a valid url").required(),
 });
 
 export const AvatarForm = (oldAvatar) => {
@@ -29,7 +29,6 @@ export const AvatarForm = (oldAvatar) => {
 
   const useOnSubmit = async (data) => {
     try {
-      console.log(data);
       await apiPut(data, `${url}/media`, "Avatar was successfully updated!");
     } catch (error) {
       console.log(error);

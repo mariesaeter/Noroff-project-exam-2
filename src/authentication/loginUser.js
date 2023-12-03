@@ -27,7 +27,3 @@ export async function loginUser(user) {
     return false;
   }
 }
-
-// export function login({setToken}) {
-
-// }

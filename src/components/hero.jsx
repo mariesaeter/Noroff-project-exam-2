@@ -7,7 +7,7 @@ export const Hero = () => {
   return (
     <>
       <div className="pt-12">
-        <div className="flex flex-col items-center  bg-[url('/assets/hero-bg2.svg')] bg-cover min-h-[30rem] py-10 ">
+        <div className="flex flex-col items-center  bg-[url('/assets/hero-bg.svg')] bg-cover min-h-[30rem] py-10 ">
           <img
             src="/assets/holidaze-logo-big.png"
             alt="Holidaze logo"
