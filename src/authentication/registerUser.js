@@ -15,8 +15,8 @@ export async function registerUser(user) {
 
     if (response.ok) {
       alert("Your user was registered successfully");
-      return json;
     }
+    return json;
   } catch (error) {
     console.log(error);
   }
