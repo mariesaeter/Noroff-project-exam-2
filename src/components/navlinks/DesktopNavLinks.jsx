@@ -4,7 +4,7 @@ import { NavCustomer } from "./NavCustomer";
 import { NavManager } from "./NavManager";
 import { AuthContext } from "../../context/AuthContext";
 
-export const DesktopNavLink = () => {
+export const DesktopNavLinks = () => {
   const { isAuthenticated, isManager } = useContext(AuthContext);
 
   if (isAuthenticated && isManager) {
