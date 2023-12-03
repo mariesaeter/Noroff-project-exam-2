@@ -38,7 +38,7 @@ export const ManagerBookings = ({ bookings }) => {
 
   return (
     <div>
-      <table className="w-full">
+      <table className="w-4/6">
         <colgroup span="3"></colgroup>
         <thead>
           <tr>
