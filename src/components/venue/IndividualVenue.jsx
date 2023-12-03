@@ -41,7 +41,7 @@ export const IndividualVenue = () => {
   const { city, country } = location;
   // const { wifi, parking, breakfast, pets } = meta;
 
-  console.log(id);
+  console.log(name);
   return (
     <>
       <PageHelmet

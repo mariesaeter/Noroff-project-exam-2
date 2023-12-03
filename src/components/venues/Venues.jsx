@@ -1,9 +1,10 @@
 // import { Link } from "react-router-dom";
 import { useState } from "react";
-import { URL_VENUES } from "../../constants/url";
+import { URL_VENUES, URL_VENUES2 } from "../../constants/url";
 import { useApiGet } from "../../hooks/api/useApiGet";
 import { VenueCard } from "./VenueCard";
 import { Pagination } from "./Pagination";
+import { useApiAuth } from "../../hooks/api/useGetProfile";
 
 // https://hygraph.com/blog/react-pagination
 
@@ -16,17 +17,23 @@ export const Venues = () => {
   // const itemsPerPage = 10;
   // const startIndex = currentPage * itemsPerPage;
   // const endIndex = startIndex + itemsPerPage;
+  // const urls = [URL_VENUES, URL_VENUES2];
 
   const { venues, isLoading, isError } = useApiGet(URL_VENUES);
+  const { data } = useApiAuth(URL_VENUES2);
 
-  const filteredVenues = venues.filter(
+  const newArr = venues.concat(data);
+  console.log(newArr);
+
+  console.log(venues);
+
+  const filteredVenues = newArr.filter(
     (x) => x.location.zip === "book" || x.location.zip === "movie"
   );
-  const data = filteredVenues;
 
   const endIndex = currentPage * venuesPerPage;
   const startIndex = endIndex - venuesPerPage;
-  const currentVenues = data.slice(startIndex, endIndex);
+  const currentVenues = filteredVenues.slice(startIndex, endIndex);
 
   let paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -39,7 +46,7 @@ export const Venues = () => {
   };
 
   const nextPage = () => {
-    if (currentPage !== Math.ceil(data.length / venuesPerPage)) {
+    if (currentPage !== Math.ceil(filteredVenues.length / venuesPerPage)) {
       setCurrentPage(currentPage + 1);
     }
   };
@@ -89,7 +96,7 @@ export const Venues = () => {
 
         <Pagination
           venuesPerPage={venuesPerPage}
-          totalVenues={data.length}
+          totalVenues={filteredVenues.length}
           paginate={paginate}
           previousPage={previousPage}
           nextPage={nextPage}
