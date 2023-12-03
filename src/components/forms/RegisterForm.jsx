@@ -6,6 +6,9 @@ import { useEffect } from "react";
 import { registerUser } from "../../authentication/registerUser";
 import { Input, InputCheckbox } from "./Input";
 
+const reg = new RegExp(
+  /^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(noroff|stud.noroff)\.no$/
+);
 const RegisterSchema = yup.object({
   name: yup
     .string()
@@ -15,7 +18,8 @@ const RegisterSchema = yup.object({
   email: yup
     .string()
     .email("Email must end with 'stud.noroff.no' or 'noroff.no'")
-    .required("Email must end with 'stud.noroff.no' or 'noroff.no'"),
+    .required("Email must end with 'stud.noroff.no' or 'noroff.no'")
+    .matches(reg, "Email must end with 'stud.noroff.no' or 'noroff.no'"),
   password: yup
     .string()
     .min(8, "The password must be at least 8 characters")
