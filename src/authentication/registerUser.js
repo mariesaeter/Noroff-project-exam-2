@@ -14,6 +14,7 @@ export async function registerUser(user) {
     const json = await response.json();
 
     if (response.ok) {
+      alert("Your user was registered successfully");
       return json;
     }
   } catch (error) {

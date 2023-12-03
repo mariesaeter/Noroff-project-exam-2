@@ -17,9 +17,6 @@ export const useOnSubmitCreateVenue = async (data) => {
     if (!data.location.lng.length) {
       data.location.lng = 0;
     }
-    // if (Array.isArray(data.media) === false) {
-    //   data.media = data.media.split(" ");
-    // }
 
     data.location.lat = parseFloat(data.location.lat);
     data.location.lng = parseFloat(data.location.lng);
