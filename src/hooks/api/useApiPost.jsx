@@ -1,6 +1,6 @@
 import { fetchToken } from "../../utils/fetchToken";
 
-export const apiPost = async (data, url) => {
+export const apiPost = async (data, url, alertText) => {
   const body = JSON.stringify(data);
 
   try {
@@ -8,7 +8,9 @@ export const apiPost = async (data, url) => {
       method: "POST",
       body,
     });
-
+    if (response.ok) {
+      alert(alertText);
+    }
     return await response.json();
   } catch (error) {
     console.log(error);

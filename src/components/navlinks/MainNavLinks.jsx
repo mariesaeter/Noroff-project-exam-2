@@ -1,6 +1,6 @@
 import { StyledLink } from "../styled-components/NavLink";
 
-export function MainNavLinks() {
+export const MainNavLinks = () => {
   return (
     <>
       <li>
@@ -14,4 +14,4 @@ export function MainNavLinks() {
       </li>
     </>
   );
-}
+};

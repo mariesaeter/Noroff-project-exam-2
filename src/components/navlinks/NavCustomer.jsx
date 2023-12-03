@@ -3,7 +3,7 @@ import { LogOutLink, StyledLink } from "../styled-components/NavLink";
 import { handleLogOut } from "../../authentication/logOutUser";
 import { loadLocal } from "../../utils/localStorage";
 
-export function NavCustomer() {
+export const NavCustomer = () => {
   const profile = loadLocal("profile");
 
   return (
@@ -22,4 +22,4 @@ export function NavCustomer() {
       </li>
     </>
   );
-}
+};

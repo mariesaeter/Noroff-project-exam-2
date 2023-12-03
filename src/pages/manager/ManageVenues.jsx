@@ -6,38 +6,22 @@ import { linkClass } from "../../constants/classes";
 import { LinkPrimary } from "../../components/styled-components/Buttons";
 import { Modal } from "../../components/Modal";
 import { VenueForm } from "../../components/forms/VenueForm";
-import * as yup from "yup";
 import { useOnSubmitUpdateVenue } from "../../components/forms/onSubmit";
 import { apiDelete } from "../../hooks/api/useApiDelete";
 import { ToggleButton } from "../../components/ToggleButton";
 import { ManagerBookings } from "../../components/bookings/ManagerBookings";
-
-export const UpdateVenueSchema = yup.object({
-  name: yup.string().notRequired(),
-  maxGuests: yup.number().notRequired(),
-  price: yup.number().notRequired(),
-  media: yup.mixed().notRequired(),
-  description: yup.string().notRequired(),
-  meta: yup.object().notRequired(),
-  location: yup
-    .object({
-      lng: yup.number(),
-      lat: yup.number(),
-    })
-    .notRequired(),
-  city: yup.string().notRequired(),
-  country: yup.string().notRequired(),
-});
+import { VenueSchema } from "../../components/forms/venueSchema";
+import { PageWrapper } from "../../components/PageWrapper";
+import { Loader } from "../../components/Loader";
 
 export const ManageVenues = () => {
   let params = useParams();
 
   const url = `${URL_PROFILE}/${params.name}/venues?_bookings=true`;
-  // const profileUser = loadLocal("profile");
   const { data, isLoading, isError } = useApiAuth(url);
 
   if (isLoading) {
-    return <div>Is loading</div>;
+    return <Loader />;
   }
   if (isError) {
     return <div>There was an error</div>;
@@ -46,12 +30,12 @@ export const ManageVenues = () => {
   return (
     <>
       <NavBgGradient />
-      <div className="mx-5 my-5 md:my-10 md:mx-16 ">
+      <PageWrapper>
         <h1 className="mb-5">Manage venues</h1>
-        <ul className="flex flex-col items-center gap-5 mb-10 relative">
+        <ul className="flex flex-col items-center gap-5 mb-10 ">
           {data.map((venue) => (
             <li
-              className="flex justify-between w-full md:w-3/4 lg:w-7/12 "
+              className="flex justify-between w-full md:w-3/4 lg:w-7/12 relative"
               key={venue.id}
             >
               <div className="flex gap-2 lg:gap-3.5 items-center">
@@ -76,10 +60,10 @@ export const ManageVenues = () => {
                       <ManagerBookings bookings={venue.bookings} />
                     </ToggleButton>
 
-                    <Modal modalLinkText="Edit venue">
+                    <Modal modalLinkText="Edit venue" title="Edit venue">
                       <div className="mx-auto bg-body-white w-full p-2 rounded-lg">
                         <VenueForm
-                          schema={UpdateVenueSchema}
+                          schema={VenueSchema}
                           btnText="Update venue"
                           id={venue.id}
                           values={venue}
@@ -87,19 +71,25 @@ export const ManageVenues = () => {
                         />
                       </div>
                     </Modal>
-                    {/* <button className={linkClass}>Edit venue</button> */}
                   </div>
                 </div>
               </div>
               <button
                 className="fa-solid fa-trash-can text-earth-brown"
-                onClick={() => apiDelete(`${URL_VENUE}/${venue.id}`)}
+                onClick={() =>
+                  apiDelete(
+                    `${URL_VENUE}/${venue.id}`,
+                    "Your venue was deleted successfully."
+                  )
+                }
               ></button>
             </li>
           ))}
         </ul>
-        <LinkPrimary text="Add new venue" location="create-venue" />
-      </div>
+        <div className="grid justify-center">
+          <LinkPrimary text="Add new venue" location="create-venue" />
+        </div>
+      </PageWrapper>
     </>
   );
 };

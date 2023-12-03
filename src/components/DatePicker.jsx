@@ -10,9 +10,6 @@ const CalendarIcon = () => {
 };
 
 export const Calendar = () => {
-  // const [dateRange, setDateRange] = useState([null, null]);
-  // const [startDate, endDate] = dateRange;
-
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
   const onChange = (dates) => {
@@ -60,18 +57,10 @@ export const DateRange = ({ control, setValue }) => {
               setValue("dateFrom", date);
               setStartDate(date);
             }}
-            // customInput={
-            //   <Input
-            //     type="string"
-            //     name="dateFrom"
-            //     register={register}
-            //     label="date from"
-            //   />
-            // }
-
             className={inputClass}
             icon={<CalendarIcon />}
             showIcon={true}
+            ariaLabelledBy="check-in-date"
             placeholderText="Date from"
           />
         )}
@@ -93,17 +82,10 @@ export const DateRange = ({ control, setValue }) => {
               setValue("dateTo", date);
               setEndDate(date);
             }}
-            // customInput={
-            //   <Input
-            //     type="string"
-            //     name="dateTo"
-            //     register={register}
-            //     label="date to"
-            //   />
-            // }
             className={inputClass}
             icon={<CalendarIcon />}
             showIcon={true}
+            ariaLabelledBy="check-out-date"
             placeholderText="date to"
           />
         )}

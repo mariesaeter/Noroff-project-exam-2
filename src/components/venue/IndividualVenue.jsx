@@ -5,12 +5,26 @@ import { VenueBody, VenueFacilities, VenueHead, VenueLocation } from "./index";
 import { BookingForm } from "../forms/BookingForm";
 import * as yup from "yup";
 import { useOnSubmitBookVenue } from "../forms/onSubmit";
+import { PageHelmet } from "../PageHelmet";
+import { Loader } from "../Loader";
+import { AuthContext } from "../../context/AuthContext";
+import { useContext } from "react";
+import { LinkPrimary } from "../styled-components/Buttons";
 
-const BookingSchema = yup.object({
-  dateFrom: yup.string().notRequired(),
-  dateTo: yup.string().notRequired(),
-  guests: yup.number().notRequired(),
-});
+const BookingSchema = ({ max }) =>
+  yup.object({
+    dateFrom: yup.string().required(),
+    dateTo: yup.string().required(),
+    guests: yup
+      .number()
+      .typeError("You must specify a number")
+      .min(1, "There must be at least 1 guest when booking a stay")
+      .max(
+        max,
+        `The number of guests needs to be below the max number of ${max} guests`
+      )
+      .required(),
+  });
 
 export const IndividualVenue = () => {
   let params = useParams();
@@ -18,9 +32,14 @@ export const IndividualVenue = () => {
   const { venue, venues, isLoading, isError } = useApiGet(
     `${URL_VENUE}/${params.id}`
   );
+  const { isAuthenticated } = useContext(AuthContext);
+
+  // if (!isAuthenticated) {
+  //   return <Redirect to="../login" />;
+  // }
 
   if (isLoading) {
-    return <div>Is loading</div>;
+    return <Loader />;
   }
   if (isError) {
     return <div>There was an error</div>;
@@ -29,12 +48,15 @@ export const IndividualVenue = () => {
   const { name, price, id, description, maxGuests } = venues;
   const { location, media, meta } = venue;
   const { city, country } = location;
-  // const { wifi, parking, breakfast, pets } = meta;
 
-  console.log(id);
   return (
     <>
-      <h1>{name}</h1>
+      <PageHelmet
+        title={`Holidaze - ${name}`}
+        content={`Holidaze venue page for ${name}`}
+      />
+
+      <h1 className="mb-2">{name}</h1>
       <small className="text-fantasy-blue">
         {city}, {country}
       </small>
@@ -44,125 +66,24 @@ export const IndividualVenue = () => {
       >
         <div>
           <VenueHead name={name} media={media[0]} price={price} />
-          <VenueFacilities
-            meta={meta}
-            // wifi={wifi}
-            // parking={parking}
-            // breakfast={breakfast}
-            // pets={pets}
-          />
+          <VenueFacilities meta={meta} />
           <VenueBody description={description} maxGuests={maxGuests} />
           <VenueLocation location={location} />
         </div>
-        <BookingForm
-          schema={BookingSchema}
-          useOnSubmit={useOnSubmitBookVenue}
-        />
+        {isAuthenticated && (
+          <BookingForm
+            schema={BookingSchema({ max: maxGuests })}
+            useOnSubmit={useOnSubmitBookVenue}
+            maxGuests={maxGuests}
+          />
+        )}
+        {!isAuthenticated && (
+          <div className="flex flex-col text-center">
+            <p>Login to book your next stay</p>
+            <LinkPrimary location="../login" text="Login" />
+          </div>
+        )}
       </div>
     </>
   );
 };
-
-// const loading = () => {
-//   return <div>is loading</div>;
-// };
-
-// const error = () => {
-//   return <div>There was an error</div>;
-// };
-
-// const displayVenue = async () => {
-//   const v = venues;
-//   console.log(v);
-
-//   // return (
-//   //   <>
-//   //     <div key={v.id}>
-//   //       <VenueHead
-//   //         name={v.name}
-//   //         city={v.location.city}
-//   //         country={v.location.country}
-//   //         media={v.media[0]}
-//   //         price={v.price}
-//   //       />
-//   //       <VenueFacilities
-//   //         wifi={v.meta.wifi}
-//   //         parking={v.meta.parking}
-//   //         breakfast={v.meta.breakfast}
-//   //         pets={v.meta.pets}
-//   //       />
-//   //       <VenueBody description={v.description} maxGuests={v.maxGuests} />
-//   //       <VenueLocation city={v.location.city} country={v.location.country} />
-//   //     </div>
-//   //   </>
-//   // );
-// };
-// useEffect(() => {
-//   console.log(params);
-
-//   // console.log(venues);
-
-//   if (isLoading) {
-//     loading();
-//   }
-
-//   if (isError) {
-//     error();
-//   }
-
-//   if (isLoading === false) {
-//     displayVenue();
-
-// if (isError) {
-//   return <div>There was an error</div>;
-// }
-// if (!isLoading) {
-//   return (
-// <>
-//   <div key={v.id}>
-//   <VenueHead
-//     name={v.name}
-//     city={v.location.city}
-//     country={v.location.country}
-//     media={v.media[0]}
-//     price={v.price}
-//   />
-//   <VenueFacilities
-//     wifi={v.meta.wifi}
-//     parking={v.meta.parking}
-//     breakfast={v.meta.breakfast}
-//     pets={v.meta.pets}
-//   />
-//   <VenueBody description={v.description} maxGuests={v.maxGuests} />
-//   <VenueLocation city={v.location.city} country={v.location.country} />
-// </div>
-// </>
-//   );
-// }
-
-// if (isError === false && isLoading === false) {
-//   const v = venues;
-//   console.log(v);
-
-//   return (
-// <>
-//   <div key={v.id}>
-//     <VenueHead
-//       name={v.name}
-//       city={v.location.city}
-//       country={v.location.country}
-//       media={v.media[0]}
-//       price={v.price}
-//     />
-//     <VenueFacilities
-//       wifi={v.meta.wifi}
-//       parking={v.meta.parking}
-//       breakfast={v.meta.breakfast}
-//       pets={v.meta.pets}
-//     />
-//     <VenueBody description={v.description} maxGuests={v.maxGuests} />
-//     <VenueLocation city={v.location.city} country={v.location.country} />
-//   </div>
-// </>
-//   );
-// }

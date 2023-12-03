@@ -38,13 +38,36 @@ export default {
       sans: ["Ledger", "sans-serif"],
       serif: ["Josefin Slab", "serif"],
     },
-    extend: {},
+    extend: {
+      margin: {
+        5.5: "1.389rem",
+        6.5: "1.667rem",
+      },
+      keyframes: {
+        scale: {
+          "0%": { transform: "scale(1)" },
+          "50%": { transform: "scale(2)" },
+          "100%": { transform: "scale(1)" },
+        },
+      },
+    },
   },
+
   plugins: [
     plugin(function ({ addBase }) {
       addBase({
         html: { fontSize: "18px", letterSpacing: "0.025em" },
       });
+    }),
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          "animate-delay": (value) => ({
+            animationDelay: value,
+          }),
+        },
+        { values: theme("transitionDelay") }
+      );
     }),
   ],
 };
