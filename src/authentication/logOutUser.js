@@ -5,6 +5,6 @@ export const handleLogOut = () => {
   removeLocal("profile");
 
   setTimeout(() => {
-    window.location.href = "../login";
+    window.location.href = "../";
   }, 250);
 };
