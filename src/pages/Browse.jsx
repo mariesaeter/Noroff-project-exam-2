@@ -13,11 +13,9 @@ export const Browse = () => {
 
       <NavBgGradient />
       <PageWrapper>
-        <h1>Browse page</h1>
-        <div className="lg:flex">
-          <div>Filter</div>
-          <Venues />
-        </div>
+        <h1>Browse Venues</h1>
+
+        <Venues />
       </PageWrapper>
     </>
   );
