@@ -6,6 +6,7 @@ import { CustomerBooking } from "../../components/bookings/CustomerBooking";
 import { LinkPrimary } from "../../components/styled-components/Buttons";
 import { PageHelmet } from "../../components/PageHelmet";
 import { PageWrapper } from "../../components/PageWrapper";
+import { Loader } from "../../components/Loader";
 
 export const MyBookings = () => {
   let params = useParams();
@@ -27,7 +28,7 @@ export const MyBookings = () => {
   );
 
   if (isLoading) {
-    return <div>Is loading</div>;
+    return <Loader />;
   }
   if (isError) {
     return <div>There was an error</div>;

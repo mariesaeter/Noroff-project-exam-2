@@ -12,6 +12,7 @@ import { ToggleButton } from "../../components/ToggleButton";
 import { ManagerBookings } from "../../components/bookings/ManagerBookings";
 import { VenueSchema } from "../../components/forms/venueSchema";
 import { PageWrapper } from "../../components/PageWrapper";
+import { Loader } from "../../components/Loader";
 
 export const ManageVenues = () => {
   let params = useParams();
@@ -21,7 +22,7 @@ export const ManageVenues = () => {
   const { data, isLoading, isError } = useApiAuth(url);
 
   if (isLoading) {
-    return <div>Is loading</div>;
+    return <Loader />;
   }
   if (isError) {
     return <div>There was an error</div>;

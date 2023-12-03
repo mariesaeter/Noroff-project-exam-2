@@ -12,6 +12,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { PageHelmet } from "../components/PageHelmet";
 import { PageWrapper } from "../components/PageWrapper";
+import { Loader } from "../components/Loader";
 
 // // import { AuthContext } from "../context/AuthContext";
 // import { loadLocal } from "../utils/localStorage";
@@ -46,7 +47,7 @@ export const Profile = () => {
 
   console.log(data);
   if (isLoading) {
-    return <div>Is loading</div>;
+    return <Loader />;
   }
   if (isError) {
     return <div>There was an error</div>;
