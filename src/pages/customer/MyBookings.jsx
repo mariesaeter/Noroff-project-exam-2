@@ -12,7 +12,6 @@ export const MyBookings = () => {
   let params = useParams();
 
   const url = `${URL_PROFILE}/${params.name}/bookings?_venues=true`;
-  // const profileUser = loadLocal("profile");
   const { data, isLoading, isError } = useApiAuth(url);
 
   const pastBookings = data.filter(

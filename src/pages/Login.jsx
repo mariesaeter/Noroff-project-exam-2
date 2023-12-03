@@ -7,8 +7,6 @@ import { NavBgSolid } from "../components/styled-components/Navbg";
 import { PageHelmet } from "../components/PageHelmet";
 
 export const Login = () => {
-  // const [token, setToken] = useState();
-
   return (
     <>
       <PageHelmet title="Holidaze - Login" content="Holidaze login page" />

@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
 import { Nav } from "./Nav";
-// import { useContext } from "react";
-// import NavContext from "../context/NavContext";
 
-export function Header() {
-  // const { navStatus } = useContext(NavContext)
+export const Header = () => {
   return (
     <>
       <header className="fixed top-0 z-30 px-5 py-3 md:px-8  w-full">
@@ -21,4 +18,4 @@ export function Header() {
       </header>
     </>
   );
-}
+};

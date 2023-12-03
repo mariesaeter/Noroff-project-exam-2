@@ -7,8 +7,6 @@ export const GetCustomer = ({ id }) => {
   let url = `${URL_BOOKINGS}/${id}?_customer=true`;
   const { data, isError, isLoading } = useApiAuth(url);
 
-  console.log(data);
-
   if (data.customer) {
     const name = data.customer.name;
 

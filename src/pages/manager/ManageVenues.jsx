@@ -18,7 +18,6 @@ export const ManageVenues = () => {
   let params = useParams();
 
   const url = `${URL_PROFILE}/${params.name}/venues?_bookings=true`;
-  // const profileUser = loadLocal("profile");
   const { data, isLoading, isError } = useApiAuth(url);
 
   if (isLoading) {
@@ -72,7 +71,6 @@ export const ManageVenues = () => {
                         />
                       </div>
                     </Modal>
-                    {/* <button className={linkClass}>Edit venue</button> */}
                   </div>
                 </div>
               </div>

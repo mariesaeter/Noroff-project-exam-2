@@ -5,7 +5,6 @@ import { linkClass } from "../constants/classes";
 export const Modal = ({ modalLinkText, id, title, children }) => {
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => setShowModal(!showModal);
-  console.log(showModal);
 
   return (
     <>
@@ -30,24 +29,9 @@ export const Modal = ({ modalLinkText, id, title, children }) => {
           <div className="max-h-full overflow-x-hidden w-full">{children}</div>
           <div className="mt-3">
             <BtnSecondary btnText="Close" onClick={() => toggleModal()} />
-            {/* <BtnPrimary btnText="Save" type="submit" /> */}
           </div>
         </div>
       )}
     </>
   );
-  // const [showModal, setShowModal] = useState(false);
-
-  // function toggleModal() {
-  //     setShowModal(!showModal);
-  // }
-  // return (
-  //     <>
-  //     {showModal ? (
-  //         <div>
-  //             <button onClick={toggleModal}>Close</button>
-  //         </div>
-  //     ): null }
-  //     </>
-  // )
 };

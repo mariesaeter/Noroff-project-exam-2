@@ -4,13 +4,10 @@ import { apiPut } from "../../hooks/api/useApiPut";
 
 export const useOnSubmitCreateVenue = async (data) => {
   try {
-    console.log(data);
-    console.log(data.media);
     data.media = data.media.split(" ");
 
     data.location.lat = parseFloat(data.location.lat);
     data.location.lng = parseFloat(data.location.lng);
-    console.log(data);
 
     await apiPost(data, URL_VENUE);
     alert(`Your venue ${data.name} was created successfully!`);
@@ -22,8 +19,6 @@ export const useOnSubmitCreateVenue = async (data) => {
 
 export const useOnSubmitUpdateVenue = async (data) => {
   try {
-    console.log(data);
-
     if (Array.isArray(data.media) === false) {
       data.media = data.media.split(" ");
     }
@@ -40,8 +35,6 @@ export const useOnSubmitUpdateVenue = async (data) => {
 
 export const useOnSubmitBookVenue = async (data) => {
   try {
-    console.log(data);
-
     await apiPost(data, URL_BOOKINGS, "Your booking was created successfully!");
   } catch (error) {
     console.log(error);

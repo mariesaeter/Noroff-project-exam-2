@@ -1,24 +1,5 @@
-// import { useReducer } from "react";
-
 import { inputClass } from "../../constants";
 import { checkboxClass, iconClass } from "../../constants/classes";
-
-{
-  /* <label htmlFor="maxGuests">Number of people</label>
-<div className=" block  relative text-earth-brown  mb-2.5">
-  
-  <input
-    type="number"
-    name="maxGuests"
-    {...register("maxGuests")}
-    className={inputClass}
-    placeholder="1-100"
-  />
-  <p className="text-error-dark text-sm mt-1">
-    {errors.maxGuests?.message}
-  </p>
-</div> */
-}
 
 export const InputIcon = ({
   type,
@@ -90,37 +71,3 @@ export const InputCheckbox = ({ name, register, label }) => {
     </div>
   );
 };
-
-// const inputReducer = (state, action) => {
-//   switch (action.type) {
-//     case "CHANGE":
-//       return { ...state, value: action.val };
-//     default:
-//       return state;
-//   }
-// };
-
-// export const Input = (props) => {
-
-//     const [inputState, dispatch] = useReducer(inputReducer, {value: ''});
-
-//     const {id, onInput} = props;
-//     const {value} = inputState;
-//   const element =
-//     props.element === "input" ? (
-//       <input
-//         name={props.name}
-//         type={props.type}
-//         placeholder={props.placeholder}
-//         value=""
-//       />
-//     ) : (
-//       <textarea name={props.name} rows="4" value="" />
-//     );
-//   return (
-//     <div>
-//       <label htmlFor={props.id}>{props.label}</label>
-//       {element}
-//     </div>
-//   );
-// };

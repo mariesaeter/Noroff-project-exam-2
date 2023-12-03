@@ -21,8 +21,3 @@ export const LogOutLink = ({ handleLogOut, children }) => {
     </Link>
   );
 };
-// export const styledLink = styled(Link) {
-// className: 'text-fantasy-blue';
-// }
-
-// text-body-white hover:border-b-2 hover:border-earth-brown scale-x-0 transition transform ease-in-out delay-300 hover:origin-left lg:text-fantasy-blue lg:hover:text-fantasy-blue-hover lg:active:text-fantasy-blue-active m-5

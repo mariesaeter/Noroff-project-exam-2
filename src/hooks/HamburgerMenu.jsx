@@ -7,8 +7,6 @@ import { MenuContext } from "../context/MenuContext";
 // // https://medium.com/@designbygio/hamburger-menu-with-react-and-tailwind-css-7ddd8c90a082
 
 export function HamburgerMenu() {
-  // const [openMenu, setOpenMenu] = useState(false);
-
   const { openMenu, toggleMenu } = useContext(MenuContext);
 
   const openButton = (
@@ -46,25 +44,3 @@ export function HamburgerMenu() {
     </section>
   );
 }
-
-// export const OpenButton = () => {
-//   const ctx = useContext(MenuContext);
-//   return (
-//     <button className="space-y-2" onClick={ctx.toggleMenu}>
-//       <span className="block h-0.5 w-8  bg-fantasy-blue"></span>
-//       <span className="block h-0.5 w-8  bg-fantasy-blue"></span>
-//       <span className="block h-0.5 w-8  bg-fantasy-blue"></span>
-//     </button>
-//   );
-// };
-
-// export const Navigation = () => {
-//   const ctx = useContext(MenuContext);
-
-//   return (
-//     <MobileNavLinks
-//       isOpen={ctx.isMenuOpen}
-//       onStateChange={(state) => ctx.stateChangeHandler(state)}
-//     />
-//   );
-// };
