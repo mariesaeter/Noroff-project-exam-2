@@ -15,7 +15,7 @@ export const VenueSchema = yup.object({
     .typeError("Venue needs to have a price")
     .min(1, "min price is $1")
     .required(),
-  media: yup.mixed().required("Your image must be a url 'https://url'"),
+  media: yup.mixed().notRequired("Your image must be a url 'https://url'"),
   description: yup
     .string()
     .min(10, "Your venue description needs to be at least 10 characters")

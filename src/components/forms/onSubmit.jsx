@@ -4,13 +4,31 @@ import { apiPut } from "../../hooks/api/useApiPut";
 
 export const useOnSubmitCreateVenue = async (data) => {
   try {
-    data.media = data.media.split(" ");
+    if (!data.media.length) {
+      data.media = ["https://placehold.co/600x400"];
+    }
+    if (Array.isArray(data.media) === false) {
+      data.media = data.media.split(" ");
+    }
+
+    if (!data.location.lat.length) {
+      data.location.lat = 0;
+    }
+    if (!data.location.lng.length) {
+      data.location.lng = 0;
+    }
+    // if (Array.isArray(data.media) === false) {
+    //   data.media = data.media.split(" ");
+    // }
 
     data.location.lat = parseFloat(data.location.lat);
     data.location.lng = parseFloat(data.location.lng);
 
-    await apiPost(data, URL_VENUE);
-    alert(`Your venue ${data.name} was created successfully!`);
+    await apiPost(
+      data,
+      URL_VENUE,
+      `Your venue ${data.name} was created successfully!`
+    );
   } catch (error) {
     console.log(error);
   }
