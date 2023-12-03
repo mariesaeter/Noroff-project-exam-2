@@ -26,7 +26,7 @@ export const Modal = ({ modalLinkText, id, title, children }) => {
               <i className="fa-solid fa-close text-fantasy-blue text-xl"></i>
             </button>
           </div>
-          <div className="max-h-full overflow-x-hidden w-full">{children}</div>
+          <div className=" max-h-full overflow-x-hidden w-full">{children}</div>
           <div className="mt-3">
             <BtnSecondary btnText="Close" onClick={() => toggleModal()} />
           </div>
