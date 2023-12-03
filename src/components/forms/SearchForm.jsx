@@ -53,15 +53,24 @@ export const SearchForm = () => {
     const searchTerm = e.target.value;
     setSearchItem(searchTerm);
 
-    const filteredVenues = filteredVenuesArr.filter((venue) =>
-      venue.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    const filteredVenues = filteredVenuesArr.filter((venue) => {
+      const searchWord = searchTerm.toLowerCase();
+      return (
+        venue.name.toLowerCase().includes(searchWord) ||
+        venue.location.address.toLowerCase().includes(searchWord) ||
+        venue.location.country.toLowerCase().includes(searchWord) ||
+        venue.location.city.toLowerCase().includes(searchWord)
+      );
+    });
     setFilteredItems(filteredVenues);
   };
 
   return (
-    <div className="w-full  lg:px-14 lg:grid lg:grid-cols-3 lg:gap-2.5 items-center">
-      <div className="w-[80%] lg:w-full block mx-auto relative text-earth-brown h-11 mb-2.5 col-span-2">
+    <div className="w-full  lg:px-14 lg:grid lg:grid-cols-3 lg:gap-x-2.5 items-center">
+      <div
+        className="w-[80%] lg:w-full block mx-auto relative text-earth-brown h-11
+       col-span-2 mb-2.5"
+      >
         <i className={iconClass("fa-location-dot")}></i>
         <input
           type="text"
@@ -80,12 +89,17 @@ export const SearchForm = () => {
           <li>No venues match your search</li>{" "}
         </ul>
       ) : ( */}
-      <ul>
+      <ul className="col-span-2 bg-body-white rounded-b-lg">
         {filteredItems.slice(0, 8).map((venue) => {
           return (
-            <li key={venue.id}>
-              <Link to={`${venue.id}`}>{venue.name}</Link>
-            </li>
+            <Link to={`${venue.id}`} key={venue.id}>
+              <li className="px-4 py-2 hover:bg-earth-brown-light flex justify-between items-center border-t border-earth-brown-light ease-in-out duration-300">
+                <p>
+                  {venue.name}, {venue.location.country}
+                </p>{" "}
+                <small>{venue.location.address}</small>
+              </li>
+            </Link>
           );
         })}
       </ul>
