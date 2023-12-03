@@ -92,6 +92,10 @@ To take the skills learned over the last two years and take on an extensive proj
 ## To do
 + Add filter to browse page
 + Expand search to also cover date span and number of guests
++ Add text to my-booking page as replacement when there are no bookings
++ Pagination arrows disable visibility of left arrow when on page 1 and right arrow when on the last page
++ Add a map to the individual venues and add location with latitude and longitude
++ While making a booking, calculate and show price to the customer
 
 
 ## Issues
