@@ -5,6 +5,7 @@ import { useApiGet } from "../../hooks/api/useApiGet";
 import { VenueCard } from "./VenueCard";
 import { Pagination } from "./Pagination";
 import { useApiAuth } from "../../hooks/api/useGetProfile";
+import { Loader } from "../Loader";
 
 // https://hygraph.com/blog/react-pagination
 
@@ -70,7 +71,7 @@ export const Venues = () => {
   // console.log(totalPages);
 
   if (isLoading) {
-    return <div>Is loading</div>;
+    return <Loader />;
   }
   if (isError) {
     return <div>There was an error</div>;

@@ -6,6 +6,7 @@ import { BookingForm } from "../forms/BookingForm";
 import * as yup from "yup";
 import { useOnSubmitBookVenue } from "../forms/onSubmit";
 import { PageHelmet } from "../PageHelmet";
+import { Loader } from "../Loader";
 
 const BookingSchema = ({ max }) =>
   yup.object({
@@ -30,7 +31,7 @@ export const IndividualVenue = () => {
   );
 
   if (isLoading) {
-    return <div>Is loading</div>;
+    return <Loader />;
   }
   if (isError) {
     return <div>There was an error</div>;

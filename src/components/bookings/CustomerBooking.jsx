@@ -73,7 +73,7 @@ export const CustomerBooking = ({ id }) => {
   }
 
   if (isLoading) {
-    return <td>Is loading</td>;
+    return <td>Loading</td>;
   }
   if (isError) {
     return <td>There was an error</td>;
