@@ -50,6 +50,13 @@ To take the skills learned over the last two years and take on an extensive proj
 - React v. 18.2.0 (set up with vite)
 - JavaScript
 
+### Other dependencies
+- react-Datepicker
+- react-helmet-async
+- react-hook-form
+- yup
+- react-router-dom
+
  ## Contributing
  ### Issues
  Feel free to submit issues and requests for improvements.
@@ -96,6 +103,16 @@ To take the skills learned over the last two years and take on an extensive proj
  ### Inspiration
  #### Lookahead search
  Inspired by [Alfonsina Lizardo at dev.to](https://dev.to/alais29/building-a-real-time-search-filter-in-react-a-step-by-step-guide-3lmm) & [Mary Gathoni at makeuseof.com](https://www.makeuseof.com/react-search-bar-filters-data-create/)
+
+ #### Pagination
+ Inspired by [Joel Olawanle at hygraph.com](https://hygraph.com/blog/react-pagination)
+
+ #### Authentication Provider
+ Inspired by [Palwasha Zulfiqar at educative.io](https://www.educative.io/answers/how-to-handle-authentication-and-authorization-in-react-js)
+
+ #### Hamburger Menu
+ Inspired by [Emmanuel Uzoezie at jounel.hasnode.dev](https://jonuel.hashnode.dev/make-your-navbar-responsive-with-react-tailwind-css-and-react-router-dom-to-link-our-page) and [designbygio at medium.com](https://medium.com/@designbygio/hamburger-menu-with-react-and-tailwind-css-7ddd8c90a082)
  
+
 
 
