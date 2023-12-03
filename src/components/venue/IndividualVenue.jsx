@@ -7,6 +7,9 @@ import * as yup from "yup";
 import { useOnSubmitBookVenue } from "../forms/onSubmit";
 import { PageHelmet } from "../PageHelmet";
 import { Loader } from "../Loader";
+import { AuthContext } from "../../context/AuthContext";
+import { useContext } from "react";
+import { LinkPrimary } from "../styled-components/Buttons";
 
 const BookingSchema = ({ max }) =>
   yup.object({
@@ -29,6 +32,11 @@ export const IndividualVenue = () => {
   const { venue, venues, isLoading, isError } = useApiGet(
     `${URL_VENUE}/${params.id}`
   );
+  const { isAuthenticated } = useContext(AuthContext);
+
+  // if (!isAuthenticated) {
+  //   return <Redirect to="../login" />;
+  // }
 
   if (isLoading) {
     return <Loader />;
@@ -62,11 +70,19 @@ export const IndividualVenue = () => {
           <VenueBody description={description} maxGuests={maxGuests} />
           <VenueLocation location={location} />
         </div>
-        <BookingForm
-          schema={BookingSchema({ max: maxGuests })}
-          useOnSubmit={useOnSubmitBookVenue}
-          maxGuests={maxGuests}
-        />
+        {isAuthenticated && (
+          <BookingForm
+            schema={BookingSchema({ max: maxGuests })}
+            useOnSubmit={useOnSubmitBookVenue}
+            maxGuests={maxGuests}
+          />
+        )}
+        {!isAuthenticated && (
+          <div className="flex flex-col text-center">
+            <p>Login to book your next stay</p>
+            <LinkPrimary location="../login" text="Login" />
+          </div>
+        )}
       </div>
     </>
   );
