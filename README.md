@@ -79,6 +79,7 @@ To take the skills learned over the last two years and take on an extensive proj
 
 ## Work process
 > [_Github Project board Gantt_](https://github.com/users/mariesaeter/projects/5/views/1)
+> 
 > [_Github Project board Trello_](https://github.com/users/mariesaeter/projects/5/views/2)
 
 ## To do
