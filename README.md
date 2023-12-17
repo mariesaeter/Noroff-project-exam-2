@@ -4,7 +4,8 @@ An accommodation booking site called Holidaze (made with API distributed by Noro
 
 > Live demo [_here_](https://holidazeadventures.netlify.app)
 
-Image here
+<img width="1440" alt="Holidaze-home-page-screenshot" src="https://github.com/mariesaeter/images-in-readme/assets/96269610/665cfc82-3505-40d9-ae3e-fb06ac529d4e">
+
 
 ## Description
 An accommodation booking site where you can view venues and register a user either as a customer or a manager. As a customer you can book a venue and see your upcoming stays, and as a venue manager you can create new venues, view bookings made to your venues, as well as update and delete your venue. Created with React and tailwind.
@@ -19,6 +20,7 @@ There are two aspects to this brief: the customer-facing side of the website whe
 
 ## Project's goal
 To take the skills learned over the last two years and take on an extensive project where the finished product should reflect the candidate’s general development capabilities, in addition to visual and technical skills.
+
 ## API
 > [_Noroff API_](https://api.noroff.dev/api/v1/holidaze)
 
